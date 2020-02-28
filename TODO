@@ -1,0 +1,17 @@
+
+Todo:
+    ☐ Support for different movement types.
+    ☐ Easy UI system
+
+Archive:
+  ✔ Debug system @done(20-02-06 15:56) @project(Todo)
+  ✔ Input system(Especially for Xbox controllers) @done(20-02-06 15:56) @project(Todo)
+  ✔ Handle animation for simple/easy animations. Eg. Just playing animation with different images. @done(20-02-06 15:56) @project(Todo)
+  ✔ Upgrades system @done(19-11-27 13:45) @project(Todo)
+  ✔ Animation system @done(19-11-27 13:46) @project(Todo)
+  ✔ Spawning system @done(19-11-27 13:46) @project(Todo)
+  ✔ Unit system @done(19-11-27 13:46) @project(Todo)
+  ✔ CollisionTransform @done(19-11-27 13:46) @project(Todo)
+  ✔ RootGo @done(19-11-27 13:46) @project(Todo)
+  ✔ Add life into the system @done(19-11-27 13:46) @project(Todo)
+  ✔ Damageable @done(19-11-27 13:46) @project(Todo)

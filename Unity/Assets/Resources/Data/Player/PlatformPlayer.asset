@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _healthStats:
     _healthStat:
-      _startStat: 3
+      _startStat: 1
       _minStatValue: -2.1474836e+9
       _maxStatValue: -1
     _invulnerabilityDuration:

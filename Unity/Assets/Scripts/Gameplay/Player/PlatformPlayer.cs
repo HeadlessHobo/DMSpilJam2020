@@ -2,6 +2,7 @@
 using Common.UnitSystem.ExamplePlayer;
 using Common.UnitSystem.ExamplePlayer.Stats;
 using Common.UnitSystem.Stats;
+using Generated;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
@@ -95,6 +96,14 @@ namespace Gameplay.Player
             if (context.performed)
             {
                 _platformPlayerPhantom.OnPhantomModeDown();
+            }
+        }
+
+        public void OnExit(InputAction.CallbackContext context)
+        {
+            if (context.performed)
+            {
+                SceneManager.LoadScene(Scenes.MENU);
             }
         }
 

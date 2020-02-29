@@ -17,6 +17,7 @@ namespace Gameplay.Player
         private Color _phantomColor;
         
         public bool IsPhantomModeActive { get; private set; }
+        public bool IsPhantomModeEnabled { get; set; }
         public float CurrentFillProcent => _data.PhantomEnergy.CurrentProcent;
 
         public PlatformPlayerPhantom(PlatformPlayerGraphics platformPlayerGraphics, Color phantomColor, Data data)

@@ -1,17 +1,21 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Gameplay.Player;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class PhantomBar : MonoBehaviour
 {
 	public Image phantomEnergyImage;
+	public GameObject BarRootGo;
 
     void Update()
     {
-	    if (GameManager.Instance.PlatformPlayer.PlatformPlayerPhantom != null)
+	    PlatformPlayerPhantom platformPlayerPhantom = GameManager.Instance.PlatformPlayer.PlatformPlayerPhantom;
+	    if (platformPlayerPhantom != null)
 	    {
-		    phantomEnergyImage.fillAmount = GameManager.Instance.PlatformPlayer.PlatformPlayerPhantom.CurrentFillProcent;
+		    BarRootGo.SetActive(platformPlayerPhantom.IsPhantomModeEnabled);
+		    phantomEnergyImage.fillAmount = platformPlayerPhantom.CurrentFillProcent;
 	    }
     }
 }

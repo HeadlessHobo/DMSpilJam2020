@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using Common.UnitSystem.LifeCycle;
 using Common.UnitSystem.Stats;
 using UnityEngine;
@@ -17,15 +19,17 @@ namespace Common.UnitSystem
         private Life _life;
         private UnitHealthStats _unitHealthStats;
         private UnitSetup _unitSetup;
-        
+        private List<Func<bool>> _deathRequirements;
         public event Died Died;
         public event TookDamage TookDamage;
         public event KilledUnit KilledUnit;
 
         public HealthFlag HealthFlags { get; }
         public bool IsDead => _life.Health.Value <= 0;
+
+
         
-        public UnitArmor(IUnit ownerUnit, HealthFlag healthFlags, UnitSetup unitSetup)
+        public UnitArmor(IUnit ownerUnit, HealthFlag healthFlags, UnitSetup unitSetup, params Func<bool>[] deathRequirements)
         {
             _unitSetup = unitSetup;
             _ownerUnit = ownerUnit;
@@ -34,6 +38,7 @@ namespace Common.UnitSystem
             _life = new Life(ownerUnit, _unitHealthStats);
             _life.Died += OnDied;
             _life.TookDamage += (damage, unitDealingDamage) => TookDamage?.Invoke(damage, unitDealingDamage);
+            _deathRequirements = deathRequirements.ToList();
         }
 
         public void TakeDamage(int damage, IUnit unitDealingDamage)
@@ -54,9 +59,19 @@ namespace Common.UnitSystem
         {
             Died?.Invoke(killedBy);
             killedBy?.GetArmor<IArmor>().OnKilledUnit(_ownerUnit);
-            if(HealthFlags.HasFlag(HealthFlag.Destructable)){
-                Object.Destroy(_unitSetup.RootGo);
+        }
+
+        private bool HasCompletedAllDeathRequirements()
+        {
+            foreach (var deathRequirement in _deathRequirements)
+            {
+                if (!deathRequirement())
+                {
+                    return false;
+                }
             }
+
+            return true;
         }
 
         public void OnKilledUnit(IUnit unitKilled)
@@ -72,6 +87,10 @@ namespace Common.UnitSystem
         public void Update()
         {
             _life.Update();
+            if (_life.IsDead && HealthFlags.HasFlag(HealthFlag.Destructable) && HasCompletedAllDeathRequirements())
+            {
+                Object.Destroy(_unitSetup.RootGo);
+            }
         }
 
         private bool CanTakeDamage()

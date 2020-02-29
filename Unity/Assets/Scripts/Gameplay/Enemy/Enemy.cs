@@ -1,11 +1,14 @@
 ﻿using Common.UnitSystem;
 using Common.UnitSystem.Stats;
+using Plugins.Timer.Source;
 using UnityEngine;
 
 namespace Gameplay.Enemy
 {
     public class Enemy : MovingUnit<EnemyConfig>
     {
+        private bool _deathAnimationPlayed;
+        
         [SerializeField]
         private EnemyStatsManager _statsManager;
 
@@ -24,6 +27,9 @@ namespace Gameplay.Enemy
         [SerializeField]
         private EnemyAnim _enemyAnim;
 
+        [SerializeField]
+        private float _deathAnimationDuration;
+
         public override UnitType UnitType => UnitType.Enemy;
         protected override IUnitStatsManager StatsManager => _statsManager;
         protected override IArmor Armor { get; set; }
@@ -38,13 +44,20 @@ namespace Gameplay.Enemy
             _statsManager.Init();
             Config = _enemyConfig;
             SlowManager = new UnitSlowManager(_statsManager.MovementStats);
-            Armor = new UnitArmor(this, HealthFlag.Killable | HealthFlag.Destructable, _movementSetup);
+            Armor = new UnitArmor(this, HealthFlag.Killable | HealthFlag.Destructable, _movementSetup, () => _deathAnimationPlayed);
+            Armor.Died += OnDied;
             EnemyVision enemyVision = new EnemyVision(_movementSetup, _statsManager.EnemySpecificStats.EnemyVisionData, Vector2.left, _visionLayermask);
             EnemyMissileLauncher enemyMissileLauncher = new EnemyMissileLauncher(enemyVision, _movementSetup,  _statsManager.UnitAttackStats, 
                 _statsManager.EnemySpecificStats.MissileSpawnData,
                 _missileLaunchData,
                 this, _enemyAnim);
             AddLifeCycleObjects(Armor, enemyVision, enemyMissileLauncher);
+        }
+
+        private void OnDied(IUnit killedBy)
+        {
+            _enemyAnim.AnimEnDeath();
+            Timer.Register(_deathAnimationDuration, () => _deathAnimationPlayed = true);
         }
 
         protected override void OnDrawGizmos()

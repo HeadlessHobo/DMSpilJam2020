@@ -719,8 +719,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_RepeatDelay: 0.5
   m_RepeatRate: 0.1
-  m_ActionsAsset: {fileID: -944628639613478452, guid: ca9f5fa95ffab41fb9a615ab714db018,
-    type: 3}
   m_PointAction: {fileID: 1054132383583890850, guid: ca9f5fa95ffab41fb9a615ab714db018,
     type: 3}
   m_MoveAction: {fileID: 3710738434707379630, guid: ca9f5fa95ffab41fb9a615ab714db018,
@@ -743,6 +741,9 @@ MonoBehaviour:
     type: 3}
   m_TrackedDeviceSelectAction: {fileID: 2559092417903258184, guid: ca9f5fa95ffab41fb9a615ab714db018,
     type: 3}
+  m_ActionsAsset: {fileID: -944628639613478452, guid: ca9f5fa95ffab41fb9a615ab714db018,
+    type: 3}
+  m_DeselectOnBackgroundClick: 1
 --- !u!114 &1100905208
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1691,6 +1692,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1880177272}
     m_Modifications:
+    - target: {fileID: 2982255465564439481, guid: acbfeff1783495b499ba4770cf4c99c9,
+        type: 3}
+      propertyPath: _sceneToLoad
+      value: Level1
+      objectReference: {fileID: 0}
     - target: {fileID: 2982255465663530082, guid: acbfeff1783495b499ba4770cf4c99c9,
         type: 3}
       propertyPath: m_LocalPosition.x

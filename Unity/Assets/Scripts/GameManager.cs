@@ -6,6 +6,9 @@ using UnityEngine;
 
 public class GameManager : Singleton<GameManager>
 {
+    [SerializeField]
+    private bool _phantomModeEnabled;
+    
     public PlatformPlayer PlatformPlayer { get; private set; }
 
     public void Start()
@@ -17,5 +20,6 @@ public class GameManager : Singleton<GameManager>
     private void OnPlayerSpawned(PlatformPlayer player)
     {
         PlatformPlayer = player;
+        PlatformPlayer.PlatformPlayerPhantom.IsPhantomModeEnabled = _phantomModeEnabled;
     }
 }

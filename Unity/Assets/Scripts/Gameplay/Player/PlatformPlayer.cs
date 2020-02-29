@@ -2,6 +2,7 @@
 using Common.UnitSystem.ExamplePlayer;
 using Common.UnitSystem.ExamplePlayer.Stats;
 using Common.UnitSystem.Stats;
+using Generated;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
@@ -48,7 +49,7 @@ namespace Gameplay.Player
 
         protected override UnitSlowManager SlowManager { get; set; }
 
-        protected  void Start()
+        protected override void Awake()
         {
             base.Awake();
             _statsManager = Instantiate(_statsManager);
@@ -58,10 +59,12 @@ namespace Gameplay.Player
             SlowManager = new UnitSlowManager(GetStatsManager<PlayerStatsManager>().MovementStats);
             Armor = new UnitArmor(this, HealthFlag.Destructable | HealthFlag.Killable, _movementSetup);
             PlayerGround playerGround = new PlayerGround(_movementSetup, _playerGroundData);
-            _platformPlayerMovement = new PlatformPlayerMovement(_movementSetup, _statsManager.MovementStats, playerGround, _playerAnim);
+            _platformPlayerMovement =
+                new PlatformPlayerMovement(_movementSetup, _statsManager.MovementStats, playerGround, _playerAnim);
             PlatformPlayerGraphics platformPlayerGraphics = new PlatformPlayerGraphics(_movementSetup);
-            _platformPlayerPhantom = new PlatformPlayerPhantom(platformPlayerGraphics, _phantomColor, _statsManager.PlayerSpecificStats.PlayerPhantomData);
-            AddLifeCycleObjects( Armor, _platformPlayerMovement, playerGround, _platformPlayerPhantom);
+            _platformPlayerPhantom = new PlatformPlayerPhantom(platformPlayerGraphics, _phantomColor,
+                _statsManager.PlayerSpecificStats.PlayerPhantomData);
+            AddLifeCycleObjects(Armor, _platformPlayerMovement, playerGround, _platformPlayerPhantom);
             Armor.Died += OnDied;
         }
 
@@ -95,6 +98,14 @@ namespace Gameplay.Player
             if (context.performed)
             {
                 _platformPlayerPhantom.OnPhantomModeDown();
+            }
+        }
+
+        public void OnExit(InputAction.CallbackContext context)
+        {
+            if (context.performed)
+            {
+                SceneManager.LoadScene(Scenes.MENU);
             }
         }
 

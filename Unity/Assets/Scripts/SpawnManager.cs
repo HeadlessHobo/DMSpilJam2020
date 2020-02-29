@@ -20,7 +20,7 @@ public class SpawnManager : Singleton<SpawnManager>
     {
         GameObject spawnPrefab = spawnTypeToPrefabMapping.GetSpawnPrefabForSpawnType(spawnType);
 
-        T spawnedObject = Instantiate(spawnPrefab, GetSpawnPositionFromSpawnType(spawnType), Quaternion.identity).GetComponent<T>();
+        T spawnedObject = Spawn<T>(spawnPrefab, GetSpawnPointFromSpawnType(spawnType));
         
         onSpawned?.Invoke(spawnedObject);
     }
@@ -32,13 +32,18 @@ public class SpawnManager : Singleton<SpawnManager>
         {
             if (spawnPoint.SpawnType == spawnType)
             {
-                Instantiate(spawnPrefab, spawnPoint.Position, Quaternion.identity).GetComponent<T>();
+                Spawn<T>(spawnPrefab, spawnPoint);
             }
         }
     }
 
-    private Vector2 GetSpawnPositionFromSpawnType(SpawnType spawnType)
+    private T Spawn<T>(GameObject spawnPrefab, SpawnPoint spawnPoint)
     {
-        return _spawnPoints.Find(item => item.SpawnType == spawnType).Position;
+        return Instantiate(spawnPrefab, spawnPoint.Position, spawnPoint.Rotation).GetComponent<T>();
+    }
+
+    private SpawnPoint GetSpawnPointFromSpawnType(SpawnType spawnType)
+    {
+        return _spawnPoints.Find(item => item.SpawnType == spawnType);
     }
 }

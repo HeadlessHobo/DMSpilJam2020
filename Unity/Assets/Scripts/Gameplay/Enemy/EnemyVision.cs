@@ -32,7 +32,7 @@ namespace Gameplay.Enemy
         
         public void Update()
         {
-            PlatformPlayer platformPlayer = GameManager.Instance.PlatformPlayer;
+            PlatformPlayer platformPlayer = MyGameManager.Instance.PlatformPlayer;
             _canSeePlayer = CanSeePlayer(platformPlayer);
             
             if (!_wasPlayerWithinVisionConeLastFrame && _canSeePlayer)

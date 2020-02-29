@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using Common.UnitSystem;
 using Common.Util;
+using DefaultNamespace;
 using NaughtyAttributes;
 using Plugins.LeanTween.Framework;
 using Plugins.Timer.Source;
@@ -14,23 +15,8 @@ using UnityEngine.SceneManagement;
 public class WinTrigger : MonoBehaviour
 {
     private TriggerNotifier _triggerNotifier;
-    
-    [SerializeField]
-    private CanvasGroup _backgroundCanvasGroup;
-    
-    [SerializeField]
-    private CanvasGroup _textCanvasGroup;
-
-    [SerializeField] 
-    private float _fadeToBlackTime;
-    
-    [SerializeField] 
-    private float _textFadeInTime;
-    
-    [SerializeField] 
-    private float _stayInBlackTime;
-
     private DropdownList<string> _allScenes;
+    private FadeUi _fadeUi;
 
     [SerializeField, Dropdown("_allScenes")] 
     private string _sceneToLoad;
@@ -50,14 +36,19 @@ public class WinTrigger : MonoBehaviour
     {
         if (Application.isPlaying)
         {
+            _fadeUi = MyGameManager.Instance.FadeUi;
             _triggerNotifier = gameObject.AddComponent<TriggerNotifier>();
             _triggerNotifier.Init(new List<UnitType>(){ UnitType.Player});
             _triggerNotifier.UnitEntered += OnUnitEntered;
-            _backgroundCanvasGroup.alpha = 1;
-            _backgroundCanvasGroup.LeanAlpha(0, _fadeToBlackTime);
+            _fadeUi.FadedOut += OnFadedOut;
         }
     }
-    
+
+    private void OnFadedOut()
+    {
+        SceneManager.LoadScene(_sceneToLoad);
+    }
+
     private void Update()
     {
         if (Application.isEditor)
@@ -68,13 +59,6 @@ public class WinTrigger : MonoBehaviour
 
     private void OnUnitEntered(UnitType unitType, IUnit unit)
     {
-        _backgroundCanvasGroup.LeanAlpha(1, _fadeToBlackTime);
-        Timer.Register(_fadeToBlackTime, BackgroundShown);
-        Timer.Register(_fadeToBlackTime + _stayInBlackTime, () => SceneManager.LoadScene(_sceneToLoad));
-    }
-
-    private void BackgroundShown()
-    {
-        _textCanvasGroup.LeanAlpha(1, _textFadeInTime);
+        _fadeUi.FadeOut();
     }
 }

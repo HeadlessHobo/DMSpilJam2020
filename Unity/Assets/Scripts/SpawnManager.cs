@@ -25,6 +25,18 @@ public class SpawnManager : Singleton<SpawnManager>
         onSpawned?.Invoke(spawnedObject);
     }
 
+    public void SpawnAllWithType<T>(SpawnType spawnType) where T : MonoBehaviour
+    {
+        GameObject spawnPrefab = spawnTypeToPrefabMapping.GetSpawnPrefabForSpawnType(spawnType);
+        foreach (var spawnPoint in _spawnPoints)
+        {
+            if (spawnPoint.SpawnType == spawnType)
+            {
+                Instantiate(spawnPrefab, spawnPoint.Position, Quaternion.identity).GetComponent<T>();
+            }
+        }
+    }
+
     private Vector2 GetSpawnPositionFromSpawnType(SpawnType spawnType)
     {
         return _spawnPoints.Find(item => item.SpawnType == spawnType).Position;

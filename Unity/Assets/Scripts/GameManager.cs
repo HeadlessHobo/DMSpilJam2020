@@ -11,7 +11,7 @@ public class GameManager : Singleton<GameManager>
     public void Start()
     {
         SpawnManager.Instance.Spawn<PlatformPlayer>(SpawnType.Player, OnPlayerSpawned);
-        SpawnManager.Instance.Spawn<Enemy>(SpawnType.Enemy);
+        SpawnManager.Instance.SpawnAllWithType<Enemy>(SpawnType.Enemy);
     }
 
     private void OnPlayerSpawned(PlatformPlayer player)

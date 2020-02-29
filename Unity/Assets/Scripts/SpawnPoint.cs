@@ -8,4 +8,5 @@ public class SpawnPoint : MonoBehaviour
     public SpawnType SpawnType => spawnType;
 
     public Vector2 Position => transform.position;
+    public Quaternion Rotation => transform.rotation;
 }

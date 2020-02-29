@@ -13,10 +13,15 @@ namespace Gameplay.Player
         
         [SerializeField]
         private PlatformPlayerMovementStats _movementStats;
+        
+        [SerializeField] 
+        private PlayerSpecificStats _playerSpecificStats;
 
         public override UnitHealthStats HealthStats => _healthStats;
 
         public PlatformPlayerMovementStats MovementStats => _movementStats;
+
+        public PlayerSpecificStats PlayerSpecificStats => _playerSpecificStats;
 
         public override void Init()
         {

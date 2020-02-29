@@ -1,5 +1,4 @@
 ﻿using System;
-using Plugins.NaughtyAttributes.Scripts.Core;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,7 +9,7 @@ namespace Common.Menu
         [SerializeField]
         private Image _image;
 
-        [Plugins.NaughtyAttributes.Scripts.Core.DrawerAttributes.Button("Auto find image")]
+        [NaughtyAttributes.Button("Auto find image")]
         private void AutoFindImage()
         {
             _image = GetComponent<Image>();

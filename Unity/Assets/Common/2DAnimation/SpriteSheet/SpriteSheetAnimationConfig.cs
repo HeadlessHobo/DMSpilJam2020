@@ -1,5 +1,5 @@
 using System;
-using Plugins.NaughtyAttributes.Scripts.Core.DrawerAttributes;
+using NaughtyAttributes;
 using UnityEngine;
 
 namespace Common._2DAnimation.SpriteSheet

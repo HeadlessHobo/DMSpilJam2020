@@ -17,6 +17,7 @@ namespace Common.UnitSystem
         private Life _life;
         private UnitHealthStats _unitHealthStats;
         private UnitSetup _unitSetup;
+        
         public event Died Died;
         public event TookDamage TookDamage;
         public event KilledUnit KilledUnit;

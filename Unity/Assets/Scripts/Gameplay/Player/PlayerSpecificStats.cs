@@ -7,10 +7,10 @@ namespace Gameplay.Player
     [Serializable]
     public class PlayerSpecificStats : IResetStats
     {
-        [SerializeField]
-        private PlayerGround.Data _playerGroundData;
+        [SerializeField] 
+        private PlatformPlayerPhantom.Data _playerPhantomData;
 
-        public PlayerGround.Data PlayerGroundData => _playerGroundData;
+        public PlatformPlayerPhantom.Data PlayerPhantomData => _playerPhantomData;
         
         public void Reset()
         {

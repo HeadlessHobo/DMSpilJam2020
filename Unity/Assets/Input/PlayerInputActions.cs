@@ -191,7 +191,7 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                     ""name"": """",
                     ""id"": ""179ee381-f736-4760-ac91-a157da9c26a0"",
                     ""path"": ""<Keyboard>/shift"",
-                    ""interactions"": ""Press(behavior=2)"",
+                    ""interactions"": ""Press"",
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
                     ""action"": ""PhantomMode"",

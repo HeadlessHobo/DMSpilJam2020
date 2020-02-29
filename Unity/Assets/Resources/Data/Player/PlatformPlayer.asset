@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f122f05ec5a46d740be63ea665bce750, type: 3}
-  m_Name: Player1
+  m_Script: {fileID: 11500000, guid: 18c90070b5cf4174aa3648bfe53d6470, type: 3}
+  m_Name: PlatformPlayer
   m_EditorClassIdentifier: 
   _healthStats:
     _healthStat:
@@ -23,10 +23,22 @@ MonoBehaviour:
       _maxStatValue: -1
   _movementStats:
     _speed:
-      _startStat: 5
+      _startStat: 8
       _minStatValue: -2.1474836e+9
       _maxStatValue: -1
     _maxSpeed:
       _startStat: 10
+      _minStatValue: -2.1474836e+9
+      _maxStatValue: -1
+    _turningDecreaseInProcent:
+      _startStat: 30
+      _minStatValue: -2.1474836e+9
+      _maxStatValue: -1
+    _losingSpeedPerFrameInProcent:
+      _startStat: 20
+      _minStatValue: -2.1474836e+9
+      _maxStatValue: -1
+    _jumpForce:
+      _startStat: 6
       _minStatValue: -2.1474836e+9
       _maxStatValue: -1

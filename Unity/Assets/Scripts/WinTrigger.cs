@@ -29,7 +29,7 @@ public class WinTrigger : MonoBehaviour
     
     [SerializeField] 
     private float _stayInBlackTime;
-    
+
     private DropdownList<string> _allScenes;
 
     [SerializeField, Dropdown("_allScenes")] 

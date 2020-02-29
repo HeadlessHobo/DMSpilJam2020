@@ -298,7 +298,7 @@ RectTransform:
   m_GameObject: {fileID: 1601310611565401607}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 90.71091}
-  m_LocalScale: {x: 0.020449897, y: 0.020449897, z: 0.020449897}
+  m_LocalScale: {x: 0.061349694, y: 0.061349694, z: 0.061349694}
   m_Children:
   - {fileID: 1601310612044151399}
   - {fileID: 1601310610144594196}
@@ -307,7 +307,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -6.63, y: -0.51}
+  m_AnchoredPosition: {x: -4.13, y: -1.8199999}
   m_SizeDelta: {x: 869, y: 489}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &1601310611565401604
@@ -328,8 +328,8 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
-  m_SortingLayerID: 0
-  m_SortingOrder: 1
+  m_SortingLayerID: -1686018811
+  m_SortingOrder: 5
   m_TargetDisplay: 0
 --- !u!114 &1601310611565401605
 MonoBehaviour:
@@ -549,7 +549,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _scaleTransformOnEnter: {fileID: 7885335826473163187}
-  _scaleTarget: {x: 2, y: 2, z: 0}
+  _scaleTarget: {x: 2, y: 2, z: 1}
   _scaleTime: 1
 --- !u!1 &4894301341425836170
 GameObject:
@@ -644,7 +644,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _scaleTransformOnEnter: {fileID: 7885335826473163187}
-  _scaleTarget: {x: 2, y: 2, z: 0}
+  _scaleTarget: {x: 2, y: 2, z: 1}
   _scaleTime: 1
 --- !u!1001 &2091485952556923544
 PrefabInstance:

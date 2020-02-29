@@ -9,6 +9,9 @@ public class PhantomBar : MonoBehaviour
 
     void Update()
     {
-	    phantomEnergyImage.fillAmount = GameManager.Instance.PlatformPlayer.PlatformPlayerPhantom.CurrentFillProcent;
+	    if (GameManager.Instance.PlatformPlayer.PlatformPlayerPhantom != null)
+	    {
+		    phantomEnergyImage.fillAmount = GameManager.Instance.PlatformPlayer.PlatformPlayerPhantom.CurrentFillProcent;
+	    }
     }
 }

@@ -41,7 +41,7 @@ namespace Gameplay.Enemy
                 _statsManager.EnemySpecificStats.MissileSpawnData,
                 _missileLaunchData,
                 this, _enemyAnim);
-            AddLifeCycleObjects(Armor, enemyVision);
+            AddLifeCycleObjects(Armor, enemyVision, enemyMissileLauncher);
         }
 
         protected override void OnDrawGizmos()

@@ -44,6 +44,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   __messageText: 
+  _phantomModeEnabled: 1
 --- !u!1 &987382670414512424
 GameObject:
   m_ObjectHideFlags: 0

@@ -29,13 +29,16 @@ namespace Gameplay.Player
         
         public void OnPhantomModeDown()
         {
-            if (IsPhantomModeActive)
+            if (IsPhantomModeEnabled)
             {
-                DeactivatePhantomMode();
-            }
-            else if(_data.PhantomEnergy.Value > 0)
-            {
-                ActivatePhantomMode();
+                if (IsPhantomModeActive)
+                {
+                    DeactivatePhantomMode();
+                }
+                else if(_data.PhantomEnergy.Value > 0)
+                {
+                    ActivatePhantomMode();
+                }
             }
         }
 

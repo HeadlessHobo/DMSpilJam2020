@@ -1,5 +1,5 @@
 ﻿using System.IO;
-using Plugins.NaughtyAttributes.Scripts.Core.DrawerAttributes;
+using NaughtyAttributes;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;

@@ -17,6 +17,7 @@ namespace Common.UnitSystem
         private Life _life;
         private UnitHealthStats _unitHealthStats;
         private UnitSetup _unitSetup;
+        
         public event Died Died;
         public event TookDamage TookDamage;
         public event KilledUnit KilledUnit;
@@ -44,10 +45,15 @@ namespace Common.UnitSystem
             }
         }
 
+        public void Die()
+        {
+            _life.Die();
+        }
+
         private void OnDied(IUnit killedBy)
         {
             Died?.Invoke(killedBy);
-            killedBy.GetArmor<IArmor>().OnKilledUnit(_ownerUnit);
+            killedBy?.GetArmor<IArmor>().OnKilledUnit(_ownerUnit);
             if(HealthFlags.HasFlag(HealthFlag.Destructable)){
                 Object.Destroy(_unitSetup.RootGo);
             }

@@ -10,9 +10,10 @@ namespace Gameplay.Player
     public class PlatformPlayer : MovingUnit<PlayerConfig>, PlayerInputActions.IPlayerActions
     {
         private PlatformPlayerMovement _platformPlayerMovement;
+        private PlatformPlayerPhantom _platformPlayerPhantom;
         
         [SerializeField]
-        private PlayerInputActions _playerInputActions;
+        private PlayerGround.Data _playerGroundData;
 
         [SerializeField] 
         private PlayerConfig _playerConfig;
@@ -20,13 +21,15 @@ namespace Gameplay.Player
         [SerializeField]
         private MovementSetup _movementSetup;
 
-        [SerializeField] 
-        private PlayerSpecificStats _playerSpecificStats;
-        
         [SerializeField]
         private PlayerStatsManager _statsManager;
 
         public override UnitType UnitType => UnitType.Player;
+
+        public PlatformPlayerPhantom PlatformPlayerPhantom => _platformPlayerPhantom;
+
+        public MovementSetup MovementSetup => _movementSetup;
+        public Vector2 Position => _movementSetup.MovementTransform.position;
 
         protected override IUnitStatsManager StatsManager => _statsManager;
         protected override UnitSetup UnitSetup => _movementSetup;
@@ -40,13 +43,16 @@ namespace Gameplay.Player
         protected  void Start()
         {
             base.Awake();
+            _statsManager = Instantiate(_statsManager);
             StatsManager.Init();
+            SetupInput();
             Config = _playerConfig;
             SlowManager = new UnitSlowManager(GetStatsManager<PlayerStatsManager>().MovementStats);
             Armor = new UnitArmor(this, HealthFlag.Destructable | HealthFlag.Killable, _movementSetup);
-            PlayerGround playerGround = new PlayerGround(_movementSetup, _playerSpecificStats.PlayerGroundData);
-            PlatformPlayerMovement platformPlayerMovement = new PlatformPlayerMovement(_movementSetup, _statsManager.MovementStats, playerGround);
-            AddLifeCycleObjects( Armor, platformPlayerMovement, playerGround);
+            PlayerGround playerGround = new PlayerGround(_movementSetup, _playerGroundData);
+            _platformPlayerMovement = new PlatformPlayerMovement(_movementSetup, _statsManager.MovementStats, playerGround);
+            _platformPlayerPhantom = new PlatformPlayerPhantom(_statsManager.PlayerSpecificStats.PlayerPhantomData);
+            AddLifeCycleObjects( Armor, _platformPlayerMovement, playerGround, _platformPlayerPhantom);
         }
 
         private void SetupInput()
@@ -73,11 +79,7 @@ namespace Gameplay.Player
         {
             if (context.performed)
             {
-                
-            }
-            else
-            {
-                
+                _platformPlayerPhantom.OnPhantomModeDown();
             }
         }
     }

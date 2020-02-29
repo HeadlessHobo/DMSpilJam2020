@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using Common._2DAnimation.Abstract;
 using Common.Generating;
 using Common.Util;
-using Plugins.NaughtyAttributes.Scripts.Core.DrawerAttributes;
 using UnityEngine;
 
 namespace Common._2DAnimation.SpriteSheet

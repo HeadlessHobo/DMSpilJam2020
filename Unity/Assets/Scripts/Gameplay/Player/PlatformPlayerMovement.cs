@@ -113,7 +113,6 @@ namespace Gameplay.Player
         {
             if (_playerGround.IsGrounded())
             {
-                Debug.Log("Jumped");
                 _rigidbody2D.AddForce(Vector2.up * _platformPlayerMovementStats.JumpForce, ForceMode2D.Impulse);
             }
         }

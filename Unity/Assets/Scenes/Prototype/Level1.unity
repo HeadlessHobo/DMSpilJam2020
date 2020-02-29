@@ -810,6 +810,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1601310611394867870, guid: ad07bb68d096ad0439875cc707043d6c,
+        type: 3}
+      propertyPath: _sceneToLoad
+      value: Level3
+      objectReference: {fileID: 0}
     - target: {fileID: 1601310611394867871, guid: ad07bb68d096ad0439875cc707043d6c,
         type: 3}
       propertyPath: m_Name
@@ -1468,7 +1473,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 10.73
+  orthographic size: 11.85
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1492,7 +1497,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1839285581}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.6, y: 3.2, z: -10}
+  m_LocalPosition: {x: -3.8, y: 3.2, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

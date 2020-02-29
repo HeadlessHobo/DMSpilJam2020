@@ -10,6 +10,9 @@ namespace Gameplay.Player
     {
         private MovementSetup _movementSetup;
         private Data _data;
+        private bool _wasInTheAirLastFrame;
+
+        public event Action HitGround;
         
         public PlayerGround(MovementSetup movementSetup, Data data)
         {
@@ -20,6 +23,12 @@ namespace Gameplay.Player
         public void Update()
         {
             DebugPanel.Log("Grounded", "Player", IsGrounded());
+            if (_wasInTheAirLastFrame && IsGrounded())
+            {
+                HitGround?.Invoke();
+            }
+            
+            _wasInTheAirLastFrame = !IsGrounded();
         }
 
         public bool IsGrounded()

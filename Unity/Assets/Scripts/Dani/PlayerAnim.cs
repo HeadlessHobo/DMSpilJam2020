@@ -4,28 +4,13 @@ using UnityEngine;
 
 public class PlayerAnim : MonoBehaviour
 {
-	
-	
 	public Animator PlayerAnimator;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
+	private static readonly int Speed = Animator.StringToHash("Speed");
+
+	public void SetSpeed(float speed)
     {
-      if(Input.GetKeyDown(KeyCode.A))
-		{
-			Debug.Log("Nej");
-			AnimPlayerJump();
-		} 
-	 if(Input.GetKeyDown(KeyCode.S))
-		{
-			Debug.Log("Nej");
-			AnimPlayerRun();
-		}	
+	    PlayerAnimator.SetFloat(Speed, speed);
     }
 	
 	public void AnimPlayerJump()

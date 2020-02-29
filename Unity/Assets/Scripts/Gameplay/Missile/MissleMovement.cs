@@ -2,6 +2,7 @@
 using Common.UnitSystem;
 using Common.UnitSystem.LifeCycle;
 using Common.Util;
+using Gameplay.Player;
 using UnityEngine;
 
 namespace Gameplay.Missile
@@ -28,6 +29,13 @@ namespace Gameplay.Missile
 
         private void OnUnitEntered(UnitType unitType, IUnit unit)
         {
+            PlatformPlayer platformPlayer = unit as PlatformPlayer;
+            if (platformPlayer != null && platformPlayer.PlatformPlayerPhantom.IsPhantomModeActive)
+            {
+                return;
+            }
+            
+            
             if (_data.UnitsToDamage.Contains(unitType))
             {
                 unit.GetArmor<IArmor>().TakeDamage((int)_data.Damage.Value, _owner);

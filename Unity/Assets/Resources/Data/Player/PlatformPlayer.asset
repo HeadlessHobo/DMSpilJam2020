@@ -23,7 +23,7 @@ MonoBehaviour:
       _maxStatValue: -1
   _movementStats:
     _speed:
-      _startStat: 8
+      _startStat: 20
       _minStatValue: -2.1474836e+9
       _maxStatValue: -1
     _maxSpeed:
@@ -31,7 +31,7 @@ MonoBehaviour:
       _minStatValue: -2.1474836e+9
       _maxStatValue: -1
     _turningDecreaseInProcent:
-      _startStat: 30
+      _startStat: 60
       _minStatValue: -2.1474836e+9
       _maxStatValue: -1
     _losingSpeedPerFrameInProcent:

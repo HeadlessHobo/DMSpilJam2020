@@ -1,6 +1,7 @@
 ﻿using System;
 using Common.UnitSystem;
 using Common.UnitSystem.LifeCycle;
+using Gamelogic.Extensions;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Utilities;
@@ -15,20 +16,46 @@ namespace Gameplay.Player
         private Direction _lastDirection;
         private PlatformPlayerMovementStats _platformPlayerMovementStats;
         private PlayerGround _playerGround;
+        private PlayerAnim _playerAnim;
+        private Transform _graphicsTransform;
+        private float _originalGraphicsScaleX;
         
-        public PlatformPlayerMovement(MovementSetup movementSetup, PlatformPlayerMovementStats platformPlayerMovementStats, PlayerGround playerGround)
+        public PlatformPlayerMovement(MovementSetup movementSetup, PlatformPlayerMovementStats platformPlayerMovementStats, PlayerGround playerGround,
+             PlayerAnim playerAnim)
         {
             _rigidbody2D = movementSetup.Rigidbody2D;
             _platformPlayerMovementStats = platformPlayerMovementStats;
             _playerGround = playerGround;
+            _playerAnim = playerAnim;
+            _graphicsTransform = movementSetup.GraphicsTransform;
+            _originalGraphicsScaleX = _graphicsTransform.localScale.x;
+            _playerGround.HitGround += OnHitGround;
+        }
 
+        private void OnHitGround()
+        {
+            _playerAnim.AnimPlayerRun();
         }
 
         public void FixedUpdate()
         {
             UpdateMovingDirection();
             Move();
+            UpdateAnimator();
             DebugPanel.Log("_inputDirection", "Player", _inputDirection.ToString());
+        }
+
+        private void UpdateAnimator()
+        {
+            _playerAnim.SetSpeed(_rigidbody2D.velocity.magnitude);
+            if (GetMovingDirection() == Direction.Left)
+            {
+                _graphicsTransform.SetScaleX(-_originalGraphicsScaleX);
+            }
+            else
+            {
+                _graphicsTransform.SetScaleX(_originalGraphicsScaleX);
+            }
         }
 
         private void UpdateMovingDirection()
@@ -113,6 +140,7 @@ namespace Gameplay.Player
         {
             if (_playerGround.IsGrounded())
             {
+                _playerAnim.AnimPlayerJump();
                 _rigidbody2D.AddForce(Vector2.up * _platformPlayerMovementStats.JumpForce, ForceMode2D.Impulse);
             }
         }

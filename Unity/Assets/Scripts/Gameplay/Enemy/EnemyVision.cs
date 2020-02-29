@@ -31,7 +31,7 @@ namespace Gameplay.Enemy
         public void Update()
         {
             PlatformPlayer platformPlayer = GameManager.Instance.PlatformPlayer;
-            _canSeePlayer = IsPlayerWithinVisionCone(platformPlayer);
+            _canSeePlayer = CanSeePlayer(platformPlayer);
             
             if (!_wasPlayerWithinVisionConeLastFrame && _canSeePlayer)
             {
@@ -44,6 +44,12 @@ namespace Gameplay.Enemy
 
             _wasPlayerWithinVisionConeLastFrame = _canSeePlayer;
             DebugPanel.Log("CanSeePlayer", "Enemy", _canSeePlayer);
+        }
+
+        private bool CanSeePlayer(PlatformPlayer platformPlayer)
+        {
+            return IsPlayerWithinVisionCone(platformPlayer) &&
+                   !platformPlayer.PlatformPlayerPhantom.IsPhantomModeActive;
         }
 
         private bool IsPlayerWithinVisionCone(PlatformPlayer platformPlayer)

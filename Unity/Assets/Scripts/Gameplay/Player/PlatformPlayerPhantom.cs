@@ -2,6 +2,7 @@
 using System.Timers;
 using Common.UnitSystem;
 using Common.UnitSystem.LifeCycle;
+using UnityEngine;
 using UnityEngine.InputSystem;
 using Yurowm.DebugTools;
 using Timer = Plugins.Timer.Source.Timer;
@@ -12,12 +13,16 @@ namespace Gameplay.Player
     {
         private Data _data;
         private Timer _currentPhantomEnergyCycleTimer;
+        private PlatformPlayerGraphics _platformPlayerGraphics;
+        private Color _phantomColor;
         
         public bool IsPhantomModeActive { get; private set; }
         public float CurrentFillProcent => _data.PhantomEnergy.CurrentProcent;
 
-        public PlatformPlayerPhantom(Data data)
+        public PlatformPlayerPhantom(PlatformPlayerGraphics platformPlayerGraphics, Color phantomColor, Data data)
         {
+            _platformPlayerGraphics = platformPlayerGraphics;
+            _phantomColor = phantomColor;
             _data = data;
         }
         
@@ -25,30 +30,54 @@ namespace Gameplay.Player
         {
             if (IsPhantomModeActive)
             {
-                IsPhantomModeActive = false;
-                _currentPhantomEnergyCycleTimer.Cancel();
+                DeactivatePhantomMode();
             }
-            else
+            else if(_data.PhantomEnergy.Value > 0)
             {
-                UsedPhantomEnergy();
-                PhantomEnergyCycle();
-                IsPhantomModeActive = true;
+                ActivatePhantomMode();
             }
+        }
+
+        private void ActivatePhantomMode()
+        {
+            UsedPhantomEnergy();
+            PhantomEnergyCycle();
+            IsPhantomModeActive = true;
+            _platformPlayerGraphics.ChangeColor(_phantomColor);
+        }
+
+        private void DeactivatePhantomMode()
+        {
+            IsPhantomModeActive = false;
+            _currentPhantomEnergyCycleTimer.Cancel();
+            _currentPhantomEnergyCycleTimer.Cancel();
+            _platformPlayerGraphics.ChangeColor(Color.white);
         }
 
         private void PhantomEnergyCycle()
         {
-            UsedPhantomEnergy();
-            _currentPhantomEnergyCycleTimer = Timer.Register(_data.PhantomCycleInterval.Value, PhantomEnergyCycle);
+            if (_data.PhantomEnergy.Value > 0)
+            {
+                UsedPhantomEnergy();
+                _currentPhantomEnergyCycleTimer = Timer.Register(_data.PhantomCycleInterval.Value, PhantomEnergyCycle);
+            }
         }
 
         private void UsedPhantomEnergy()
         {
-            _data.PhantomEnergy.DecreaseTempStat(_data.PhantomEnergyUsagePerCycle.Value);
+            if (_data.PhantomEnergy.Value > 0)
+            {
+                _data.PhantomEnergy.DecreaseTempStat(_data.PhantomEnergyUsagePerCycle.Value);
+            }
         }
 
         public void Update()
         {
+            if (_data.PhantomEnergy.Value <= 0)
+            {
+                DeactivatePhantomMode();
+            }
+
             DebugPanel.Log("PhantomEnergy", "Player", _data.PhantomEnergy.Value);
             DebugPanel.Log("PhantomEnergyProcent", "Player", _data.PhantomEnergy.CurrentProcent);
         }

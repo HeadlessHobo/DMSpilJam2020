@@ -4,6 +4,7 @@ using Common.UnitSystem.ExamplePlayer.Stats;
 using Common.UnitSystem.Stats;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 namespace Gameplay.Player
 {
@@ -16,6 +17,9 @@ namespace Gameplay.Player
         private PlayerGround.Data _playerGroundData;
 
         [SerializeField] 
+        private Color _phantomColor;
+
+        [SerializeField] 
         private PlayerConfig _playerConfig;
         
         [SerializeField]
@@ -23,6 +27,9 @@ namespace Gameplay.Player
 
         [SerializeField]
         private PlayerStatsManager _statsManager;
+
+        [SerializeField] 
+        private PlayerAnim _playerAnim;
 
         public override UnitType UnitType => UnitType.Player;
 
@@ -50,9 +57,16 @@ namespace Gameplay.Player
             SlowManager = new UnitSlowManager(GetStatsManager<PlayerStatsManager>().MovementStats);
             Armor = new UnitArmor(this, HealthFlag.Destructable | HealthFlag.Killable, _movementSetup);
             PlayerGround playerGround = new PlayerGround(_movementSetup, _playerGroundData);
-            _platformPlayerMovement = new PlatformPlayerMovement(_movementSetup, _statsManager.MovementStats, playerGround);
-            _platformPlayerPhantom = new PlatformPlayerPhantom(_statsManager.PlayerSpecificStats.PlayerPhantomData);
+            _platformPlayerMovement = new PlatformPlayerMovement(_movementSetup, _statsManager.MovementStats, playerGround, _playerAnim);
+            PlatformPlayerGraphics platformPlayerGraphics = new PlatformPlayerGraphics(_movementSetup);
+            _platformPlayerPhantom = new PlatformPlayerPhantom(platformPlayerGraphics, _phantomColor, _statsManager.PlayerSpecificStats.PlayerPhantomData);
             AddLifeCycleObjects( Armor, _platformPlayerMovement, playerGround, _platformPlayerPhantom);
+            Armor.Died += OnDied;
+        }
+
+        private void OnDied(IUnit killedBy)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
 
         private void SetupInput()

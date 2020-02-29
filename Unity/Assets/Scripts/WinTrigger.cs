@@ -53,10 +53,9 @@ public class WinTrigger : MonoBehaviour
             _triggerNotifier = gameObject.AddComponent<TriggerNotifier>();
             _triggerNotifier.Init(new List<UnitType>(){ UnitType.Player});
             _triggerNotifier.UnitEntered += OnUnitEntered;
+            _backgroundCanvasGroup.alpha = 1;
+            _backgroundCanvasGroup.LeanAlpha(0, _fadeToBlackTime);
         }
-
-        _backgroundCanvasGroup.alpha = 1;
-        _backgroundCanvasGroup.LeanAlpha(0, _fadeToBlackTime);
     }
     
     private void Update()

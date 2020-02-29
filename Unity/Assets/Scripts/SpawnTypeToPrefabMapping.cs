@@ -6,6 +6,7 @@ using UnityEngine;
 [Serializable][CreateAssetMenu(fileName = "SpawnTypeToPrefab", menuName = "Mappings/Spawn type to prefab mappings", order = 50)]
 public class SpawnTypeToPrefabMapping : ScriptableObject
 {
+    [SerializeField]
     private List<SpawnTypeToPrefabMappingData> _mappingList;
 
     private bool IsMultipleSpawnMappings()

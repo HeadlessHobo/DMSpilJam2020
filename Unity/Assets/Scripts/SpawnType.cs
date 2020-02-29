@@ -1,4 +1,5 @@
 ﻿public enum SpawnType
 {
-    Player
+    Player,
+    Enemy
 }

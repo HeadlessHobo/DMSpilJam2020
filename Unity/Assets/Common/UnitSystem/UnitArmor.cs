@@ -45,10 +45,15 @@ namespace Common.UnitSystem
             }
         }
 
+        public void Die()
+        {
+            _life.Die();
+        }
+
         private void OnDied(IUnit killedBy)
         {
             Died?.Invoke(killedBy);
-            killedBy.GetArmor<IArmor>().OnKilledUnit(_ownerUnit);
+            killedBy?.GetArmor<IArmor>().OnKilledUnit(_ownerUnit);
             if(HealthFlags.HasFlag(HealthFlag.Destructable)){
                 Object.Destroy(_unitSetup.RootGo);
             }

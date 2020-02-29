@@ -28,6 +28,9 @@ namespace Gameplay.Player
 
         public PlatformPlayerPhantom PlatformPlayerPhantom => _platformPlayerPhantom;
 
+        public MovementSetup MovementSetup => _movementSetup;
+        public Vector2 Position => _movementSetup.MovementTransform.position;
+
         protected override IUnitStatsManager StatsManager => _statsManager;
         protected override UnitSetup UnitSetup => _movementSetup;
 

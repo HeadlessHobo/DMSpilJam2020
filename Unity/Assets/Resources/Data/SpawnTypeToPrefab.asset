@@ -16,3 +16,6 @@ MonoBehaviour:
   - SpawnType: 0
     Prefab: {fileID: 4592395765485753829, guid: 73538e9e851677d4faadd34e836b5aa5,
       type: 3}
+  - SpawnType: 1
+    Prefab: {fileID: 3441847766090632874, guid: 781dc2d699b1afd43880d2e4397aebcb,
+      type: 3}

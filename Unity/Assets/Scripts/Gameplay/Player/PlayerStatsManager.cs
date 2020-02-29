@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Gameplay.Player
 {
-    [Serializable][CreateAssetMenu(fileName = "PlayerStatsManager", menuName = "Player stats manager", order = 52)]
+    [Serializable][CreateAssetMenu(fileName = "PlayerStatsManager", menuName = "Stats/Player stats manager", order = 52)]
     public class PlayerStatsManager : UnitStatsManager<UnitHealthStats>
     {
         [SerializeField]

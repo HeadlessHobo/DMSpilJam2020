@@ -39,7 +39,7 @@ MonoBehaviour:
       _minStatValue: -2.1474836e+9
       _maxStatValue: -1
     _jumpForce:
-      _startStat: 6
+      _startStat: 8
       _minStatValue: -2.1474836e+9
       _maxStatValue: -1
   _playerSpecificStats:

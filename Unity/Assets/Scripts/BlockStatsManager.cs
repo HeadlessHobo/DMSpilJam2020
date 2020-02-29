@@ -2,7 +2,7 @@
 using Common.UnitSystem.Stats;
 using UnityEngine;
 
-[Serializable][CreateAssetMenu(fileName = "BlockStatsManager", menuName = "Block stats manager", order = 53)]
+[Serializable][CreateAssetMenu(fileName = "BlockStatsManager", menuName = "Stats/Block stats manager", order = 53)]
 public class BlockStatsManager : UnitStatsManager<UnitHealthStats>
 {
     [SerializeField]

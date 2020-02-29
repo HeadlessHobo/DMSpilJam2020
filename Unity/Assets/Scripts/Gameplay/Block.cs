@@ -26,6 +26,7 @@ namespace Gameplay
             _statsManager = Instantiate(_statsManager);
             _statsManager.Init();
             Armor = new UnitArmor(this, _healthFlags, UnitSetup);
+            AddLifeCycleObject(Armor);
         }
     }
 }

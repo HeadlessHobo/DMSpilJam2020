@@ -68,18 +68,31 @@ namespace Common.UnitSystem
 
         private void Update()
         {
-            _lifeCycleHandler.Update();
+            if (Application.isPlaying)
+            {
+                _lifeCycleHandler.Update();
+            }
         }
         
         private void FixedUpdate()
         {
-            _lifeCycleHandler.FixedUpdate();
+            if (Application.isPlaying)
+            {
+                _lifeCycleHandler.FixedUpdate();
+            }
         }
         
         private void OnDestroy()
         {
-            _lifeCycleHandler.OnDestroy();
+            if (Application.isPlaying)
+            {
+                _lifeCycleHandler.OnDestroy();
+            }
         }
-        
+
+        protected virtual void OnDrawGizmos()
+        {
+            _lifeCycleHandler?.OnDrawGizmos();
+        }
     }
 }

@@ -39,7 +39,7 @@ MonoBehaviour:
       _minStatValue: -2.1474836e+9
       _maxStatValue: -1
     _jumpForce:
-      _startStat: 8
+      _startStat: 16
       _minStatValue: -2.1474836e+9
       _maxStatValue: -1
   _playerSpecificStats:
@@ -49,7 +49,7 @@ MonoBehaviour:
         _minStatValue: 0
         _maxStatValue: 100
       PhantomEnergyUsagePerCycle:
-        _startStat: 1
+        _startStat: 4
         _minStatValue: -2.1474836e+9
         _maxStatValue: -1
       PhantomCycleInterval:

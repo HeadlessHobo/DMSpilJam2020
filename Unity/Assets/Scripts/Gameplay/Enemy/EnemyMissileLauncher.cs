@@ -1,6 +1,7 @@
 ﻿using System;
 using Common.SpawnHanding;
 using Common.UnitSystem;
+using Common.UnitSystem.LifeCycle;
 using Common.UnitSystem.Stats;
 using Gameplay.Player;
 using Plugins.Timer.Source;
@@ -8,7 +9,7 @@ using UnityEngine;
 
 namespace Gameplay.Enemy
 {
-    public class EnemyMissileLauncher
+    public class EnemyMissileLauncher : IOnDestroy
     {
         private UnitAttackStats _unitAttackStats;
         private bool _canAttack;
@@ -62,6 +63,11 @@ namespace Gameplay.Enemy
             _attackTimer.Cancel();
         }
         
+        public void OnDestroy()
+        {
+            _attackTimer.Cancel();
+        }
+
         [Serializable]
         public class  MissileLaunchData
         {

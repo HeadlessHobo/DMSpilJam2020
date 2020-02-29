@@ -12,6 +12,7 @@ namespace Gameplay.Player
     {
         private PlatformPlayerMovement _platformPlayerMovement;
         private PlatformPlayerPhantom _platformPlayerPhantom;
+        private PlayerInputActions _playerInputActions;
         
         [SerializeField]
         private PlayerGround.Data _playerGroundData;
@@ -71,9 +72,9 @@ namespace Gameplay.Player
 
         private void SetupInput()
         {
-            PlayerInputActions playerInputActions = new PlayerInputActions();
-            playerInputActions.Player.SetCallbacks(this);
-            playerInputActions.Player.Enable();
+            _playerInputActions = new PlayerInputActions();
+            _playerInputActions.Player.SetCallbacks(this);
+            _playerInputActions.Player.Enable();
         }
 
         public void OnMove(InputAction.CallbackContext context)
@@ -95,6 +96,12 @@ namespace Gameplay.Player
             {
                 _platformPlayerPhantom.OnPhantomModeDown();
             }
+        }
+
+        protected override void OnDestroy()
+        {
+            base.OnDestroy();
+            _playerInputActions.Player.Disable();
         }
     }
 }

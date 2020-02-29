@@ -82,7 +82,7 @@ namespace Common.UnitSystem
             }
         }
         
-        private void OnDestroy()
+        protected virtual void OnDestroy()
         {
             if (Application.isPlaying)
             {

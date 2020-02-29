@@ -95,7 +95,7 @@ namespace Gameplay.Player
         {
             if (GetMovingDirection() != Direction.Still)
             {
-                _rigidbody2D.AddForce(GetMovingDirectionAsVector2() * _platformPlayerMovementStats.Speed);   
+                _rigidbody2D.velocity = new Vector2(GetMovingDirectionAsVector2().x * _platformPlayerMovementStats.Speed, _rigidbody2D.velocity.y);
             }
             else if (GetMovingDirection() == Direction.Still)
             {

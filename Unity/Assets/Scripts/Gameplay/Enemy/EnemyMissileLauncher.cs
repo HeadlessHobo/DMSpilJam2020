@@ -60,12 +60,12 @@ namespace Gameplay.Enemy
         
         private void OnPlayerExitedVision(PlatformPlayer player)
         {
-            _attackTimer.Cancel();
+            _attackTimer?.Cancel();
         }
         
         public void OnDestroy()
         {
-            _attackTimer.Cancel();
+            _attackTimer?.Cancel();
         }
 
         [Serializable]

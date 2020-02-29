@@ -282,4 +282,7 @@ MonoBehaviour:
     MissilePrefab: {fileID: 7866995871203621136, guid: 6520024b14ce3424db092866fd7c5cf4,
       type: 3}
     SpawnPoint: {fileID: 2117841244}
+  _visionLayermask:
+    serializedVersion: 2
+    m_Bits: 2304
   _enemyAnim: {fileID: 1388379492538693887}

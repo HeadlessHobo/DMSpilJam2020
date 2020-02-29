@@ -18,6 +18,9 @@ namespace Gameplay.Enemy
         [SerializeField] 
         private EnemyMissileLauncher.MissileLaunchData _missileLaunchData;
 
+        [SerializeField] 
+        private LayerMask _visionLayermask;
+
         [SerializeField]
         private EnemyAnim _enemyAnim;
 
@@ -36,7 +39,7 @@ namespace Gameplay.Enemy
             Config = _enemyConfig;
             SlowManager = new UnitSlowManager(_statsManager.MovementStats);
             Armor = new UnitArmor(this, HealthFlag.Killable | HealthFlag.Destructable, _movementSetup);
-            EnemyVision enemyVision = new EnemyVision(_movementSetup, _statsManager.EnemySpecificStats.EnemyVisionData, Vector2.left);
+            EnemyVision enemyVision = new EnemyVision(_movementSetup, _statsManager.EnemySpecificStats.EnemyVisionData, Vector2.left, _visionLayermask);
             EnemyMissileLauncher enemyMissileLauncher = new EnemyMissileLauncher(enemyVision, _movementSetup,  _statsManager.UnitAttackStats, 
                 _statsManager.EnemySpecificStats.MissileSpawnData,
                 _missileLaunchData,

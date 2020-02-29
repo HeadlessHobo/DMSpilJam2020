@@ -17,12 +17,14 @@ namespace Gameplay.Enemy
         private Data _data;
         private bool _wasPlayerWithinVisionConeLastFrame;
         private bool _canSeePlayer;
+        private LayerMask _visionLayermask;
 
         public event PlayerEnteredVision PlayerEnteredVision;
         public event PlayerExitedVision PlayerExitedVision;
         
-        public EnemyVision(MovementSetup movementSetup, Data data, Vector2 startLookDirection)
+        public EnemyVision(MovementSetup movementSetup, Data data, Vector2 startLookDirection, LayerMask visionLayermask)
         {
+            _visionLayermask = visionLayermask;
             _movementTransform = movementSetup.MovementTransform;
             _data = data;
             _startLookDirection = startLookDirection;
@@ -49,7 +51,14 @@ namespace Gameplay.Enemy
         private bool CanSeePlayer(PlatformPlayer platformPlayer)
         {
             return IsPlayerWithinVisionCone(platformPlayer) &&
+                   IsNoObstructionToLineOfSightToPlayer(platformPlayer) &&
                    !platformPlayer.PlatformPlayerPhantom.IsPhantomModeActive;
+        }
+
+        private bool IsNoObstructionToLineOfSightToPlayer(PlatformPlayer platformPlayer)
+        {
+            RaycastHit2D hit = Physics2D.Raycast(_movementTransform.position, DirectionToPlayer(platformPlayer), int.MaxValue, _visionLayermask);
+            return hit.transform != null && hit.transform.GetComponentInParent<PlatformPlayer>() != null;
         }
 
         private bool IsPlayerWithinVisionCone(PlatformPlayer platformPlayer)

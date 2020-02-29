@@ -11,7 +11,7 @@ public class PhantomBar : MonoBehaviour
 
     void Update()
     {
-	    PlatformPlayerPhantom platformPlayerPhantom = GameManager.Instance.PlatformPlayer.PlatformPlayerPhantom;
+	    PlatformPlayerPhantom platformPlayerPhantom = MyGameManager.Instance.PlatformPlayer.PlatformPlayerPhantom;
 	    if (platformPlayerPhantom != null)
 	    {
 		    BarRootGo.SetActive(platformPlayerPhantom.IsPhantomModeEnabled);

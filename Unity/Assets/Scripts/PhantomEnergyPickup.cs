@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Common.UnitSystem;
 using Common.Util;
 using Gameplay.Player;
+using NaughtyAttributes;
 using UnityEngine;
 
 public class PhantomEnergyPickup : MonoBehaviour
@@ -10,15 +11,15 @@ public class PhantomEnergyPickup : MonoBehaviour
     [SerializeField] 
     private float _energyToAddOnPickup;
     
-    [SerializeField] 
+    [SerializeField, ShowIf("ShowSetupSettings")] 
     private GameObject _triggerGo;
     
-    [SerializeField] 
+    [SerializeField, ShowIf("ShowSetupSettings")] 
     private GameObject _rootGo;
 
     private bool ShowSetupSettings()
     {
-        return true;
+        return false;
     }
     
     private void Awake()

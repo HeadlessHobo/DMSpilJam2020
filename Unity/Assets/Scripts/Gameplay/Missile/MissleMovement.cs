@@ -30,7 +30,7 @@ namespace Gameplay.Missile
         private void OnUnitEntered(UnitType unitType, IUnit unit)
         {
             PlatformPlayer platformPlayer = unit as PlatformPlayer;
-            if (platformPlayer != null && platformPlayer.PlatformPlayerPhantom.IsPhantomModeActive)
+            if (platformPlayer != null && platformPlayer.PlatformPlayerPhantom.IsPhantomModeActive || unitType == UnitType.Missile)
             {
                 return;
             }

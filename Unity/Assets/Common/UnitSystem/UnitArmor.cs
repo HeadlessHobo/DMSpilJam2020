@@ -82,7 +82,7 @@ namespace Common.UnitSystem
             KilledUnit?.Invoke(unitKilled);   
         }
 
-        private void MakeInvulnerable()
+        public void MakeInvulnerable()
         {
             _nextDamageableTime = Time.time + _unitHealthStats.InvulnerabilityDuration.Value; 
         }

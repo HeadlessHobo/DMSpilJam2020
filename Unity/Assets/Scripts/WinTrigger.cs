@@ -4,6 +4,7 @@ using System.IO;
 using Common.UnitSystem;
 using Common.Util;
 using DefaultNamespace;
+using Gameplay.Player;
 using NaughtyAttributes;
 using Plugins.LeanTween.Framework;
 using Plugins.Timer.Source;
@@ -64,6 +65,8 @@ public class WinTrigger : MonoBehaviour
     {
         if (!_hasBeenTriggered)
         {
+            PlatformPlayer platformPlayer = unit as PlatformPlayer;
+            platformPlayer?.GetArmor<IArmor>().MakeInvulnerable();
             MyGameManager.CurrentLevel++;
             SoundManagerDefault.Instance.PlayPortalSound();
             _fadeUi.FadeOut("Level " + MyGameManager.CurrentLevel);

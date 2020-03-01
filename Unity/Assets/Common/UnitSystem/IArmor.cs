@@ -13,6 +13,7 @@ namespace Common.UnitSystem
         bool IsDead { get; }
         void AddDestroyRequirement(Func<bool> destroyRequirement);
         void TakeDamage(int damage, IUnit unitDealingDamage);
+        void MakeInvulnerable();
         void Die();
         void OnKilledUnit(IUnit unitKilled);
     }

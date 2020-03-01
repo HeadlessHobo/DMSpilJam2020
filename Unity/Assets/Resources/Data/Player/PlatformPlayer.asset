@@ -18,7 +18,7 @@ MonoBehaviour:
       _minStatValue: -2.1474836e+9
       _maxStatValue: -1
     _invulnerabilityDuration:
-      _startStat: 0
+      _startStat: 10
       _minStatValue: -2.1474836e+9
       _maxStatValue: -1
   _movementStats:

@@ -48,11 +48,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21189c1cc38f432985120ec1a0fa1d51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _backgroundCanvasGroup: {fileID: 0}
-  _textCanvasGroup: {fileID: 0}
-  _fadeToBlackTime: 3
-  _textFadeInTime: 1
-  _stayInBlackTime: 3
   _sceneToLoad: Prototype
 --- !u!61 &1601310611394867867
 BoxCollider2D:
@@ -353,10 +348,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8099763800499875873, guid: c021baec499996044a63b3a8817d30ab,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 8099763800499875874, guid: c021baec499996044a63b3a8817d30ab,
         type: 3}
       propertyPath: m_Name
       value: DoorFrame
+      objectReference: {fileID: 0}
+    - target: {fileID: 8099763800499875874, guid: c021baec499996044a63b3a8817d30ab,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c021baec499996044a63b3a8817d30ab, type: 3}

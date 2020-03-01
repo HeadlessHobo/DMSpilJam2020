@@ -32,6 +32,9 @@ public class SoundManagerDefault : Singleton<SoundManagerDefault>
 	
 	public AudioClip ExitPhantSound;
 	public AudioSource ExitPhantSoundSource;
+	
+	public AudioClip BlocksExplodeSound;
+	public AudioSource BlocksExplodeSoundSource;
 
 	public void PlayJumpSound()
 	{
@@ -85,6 +88,12 @@ public class SoundManagerDefault : Singleton<SoundManagerDefault>
 	{
 		ProjectileHitSoundSource.clip = ProjectileHitSound;
 		ProjectileHitSoundSource.Play();
+	}	
+	
+	public void PlayBlocksExplodeSound()
+	{
+		BlocksExplodeSoundSource.clip = BlocksExplodeSound;
+		BlocksExplodeSoundSource.Play();
 	}
 	
 }

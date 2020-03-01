@@ -1,5 +1,132 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2244235399027853204
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2737874052869935440}
+  - component: {fileID: 5728836864101486981}
+  m_Layer: 0
+  m_Name: BlocksExplode
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2737874052869935440
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2244235399027853204}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6622815387201761324}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &5728836864101486981
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2244235399027853204}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 4db193d78f39cf34c8e9271c3035817c, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &6622815385659043927
 GameObject:
   m_ObjectHideFlags: 0
@@ -10,7 +137,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6622815385659043946}
   - component: {fileID: 6622815385659043944}
-  - component: {fileID: 6622815385659043945}
   m_Layer: 0
   m_Name: MonsterDie
   m_TagString: Untagged
@@ -42,7 +168,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: caeae7da403d1a34c802b76f5d93b999, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 7509c45d2a440114397ca10c4cde792e, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -128,39 +254,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &6622815385659043945
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6622815385659043927}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d57f2a2f37a3ab24cabaae8b1bf82cc9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  __messageText: 
-  MusicSound: {fileID: 0}
-  MusicSoundSource: {fileID: 0}
-  JumpSound: {fileID: 0}
-  JumpSoundSource: {fileID: 0}
-  PlayerLandSound: {fileID: 0}
-  PlayerLandSoundSource: {fileID: 0}
-  MonsterDeathSound: {fileID: 0}
-  MonsterDeathSoundSource: {fileID: 0}
-  MonsterShootSound: {fileID: 0}
-  MonsterShootSoundSource: {fileID: 0}
-  PortalSound: {fileID: 0}
-  PortalSoundSource: {fileID: 0}
-  ProjectileHitSound: {fileID: 0}
-  ProjectileHitSoundSource: {fileID: 0}
-  PlayerDeathSound: {fileID: 0}
-  PlayerDeathSoundSource: {fileID: 0}
-  EnterPhantSound: {fileID: 0}
-  EnterPhantSoundSource: {fileID: 0}
-  ExitPhantSound: {fileID: 0}
-  ExitPhantSoundSource: {fileID: 0}
 --- !u!1 &6622815385663644911
 GameObject:
   m_ObjectHideFlags: 0
@@ -171,7 +264,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6622815385663644898}
   - component: {fileID: 6622815385663644896}
-  - component: {fileID: 6622815385663644897}
   m_Layer: 0
   m_Name: Portal
   m_TagString: Untagged
@@ -203,7 +295,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: caeae7da403d1a34c802b76f5d93b999, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 6d6ac8441be560d458de6348dc95b3fb, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -289,39 +381,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &6622815385663644897
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6622815385663644911}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d57f2a2f37a3ab24cabaae8b1bf82cc9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  __messageText: 
-  MusicSound: {fileID: 0}
-  MusicSoundSource: {fileID: 0}
-  JumpSound: {fileID: 0}
-  JumpSoundSource: {fileID: 0}
-  PlayerLandSound: {fileID: 0}
-  PlayerLandSoundSource: {fileID: 0}
-  MonsterDeathSound: {fileID: 0}
-  MonsterDeathSoundSource: {fileID: 0}
-  MonsterShootSound: {fileID: 0}
-  MonsterShootSoundSource: {fileID: 0}
-  PortalSound: {fileID: 0}
-  PortalSoundSource: {fileID: 0}
-  ProjectileHitSound: {fileID: 0}
-  ProjectileHitSoundSource: {fileID: 0}
-  PlayerDeathSound: {fileID: 0}
-  PlayerDeathSoundSource: {fileID: 0}
-  EnterPhantSound: {fileID: 0}
-  EnterPhantSoundSource: {fileID: 0}
-  ExitPhantSound: {fileID: 0}
-  ExitPhantSoundSource: {fileID: 0}
 --- !u!1 &6622815385670467147
 GameObject:
   m_ObjectHideFlags: 0
@@ -332,7 +391,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6622815385670467148}
   - component: {fileID: 6622815385670467150}
-  - component: {fileID: 6622815385670467149}
   m_Layer: 0
   m_Name: PhantExit
   m_TagString: Untagged
@@ -450,39 +508,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &6622815385670467149
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6622815385670467147}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d57f2a2f37a3ab24cabaae8b1bf82cc9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  __messageText: 
-  MusicSound: {fileID: 0}
-  MusicSoundSource: {fileID: 0}
-  JumpSound: {fileID: 0}
-  JumpSoundSource: {fileID: 0}
-  PlayerLandSound: {fileID: 0}
-  PlayerLandSoundSource: {fileID: 0}
-  MonsterDeathSound: {fileID: 0}
-  MonsterDeathSoundSource: {fileID: 0}
-  MonsterShootSound: {fileID: 0}
-  MonsterShootSoundSource: {fileID: 0}
-  PortalSound: {fileID: 0}
-  PortalSoundSource: {fileID: 0}
-  ProjectileHitSound: {fileID: 0}
-  ProjectileHitSoundSource: {fileID: 0}
-  PlayerDeathSound: {fileID: 0}
-  PlayerDeathSoundSource: {fileID: 0}
-  EnterPhantSound: {fileID: 0}
-  EnterPhantSoundSource: {fileID: 0}
-  ExitPhantSound: {fileID: 0}
-  ExitPhantSoundSource: {fileID: 0}
 --- !u!1 &6622815385889732740
 GameObject:
   m_ObjectHideFlags: 0
@@ -493,7 +518,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6622815385889732743}
   - component: {fileID: 6622815385889732741}
-  - component: {fileID: 6622815385889732742}
   m_Layer: 0
   m_Name: ProjectileHit
   m_TagString: Untagged
@@ -525,7 +549,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: caeae7da403d1a34c802b76f5d93b999, type: 3}
+  m_audioClip: {fileID: 8300000, guid: ed811bf1a62ccdc49b4fb0261568c20c, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -611,39 +635,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &6622815385889732742
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6622815385889732740}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d57f2a2f37a3ab24cabaae8b1bf82cc9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  __messageText: 
-  MusicSound: {fileID: 0}
-  MusicSoundSource: {fileID: 0}
-  JumpSound: {fileID: 0}
-  JumpSoundSource: {fileID: 0}
-  PlayerLandSound: {fileID: 0}
-  PlayerLandSoundSource: {fileID: 0}
-  MonsterDeathSound: {fileID: 0}
-  MonsterDeathSoundSource: {fileID: 0}
-  MonsterShootSound: {fileID: 0}
-  MonsterShootSoundSource: {fileID: 0}
-  PortalSound: {fileID: 0}
-  PortalSoundSource: {fileID: 0}
-  ProjectileHitSound: {fileID: 0}
-  ProjectileHitSoundSource: {fileID: 0}
-  PlayerDeathSound: {fileID: 0}
-  PlayerDeathSoundSource: {fileID: 0}
-  EnterPhantSound: {fileID: 0}
-  EnterPhantSoundSource: {fileID: 0}
-  ExitPhantSound: {fileID: 0}
-  ExitPhantSoundSource: {fileID: 0}
 --- !u!1 &6622815387086020549
 GameObject:
   m_ObjectHideFlags: 0
@@ -654,7 +645,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6622815387086020568}
   - component: {fileID: 6622815387086020550}
-  - component: {fileID: 6622815387086020551}
   m_Layer: 0
   m_Name: MonsterShoot
   m_TagString: Untagged
@@ -686,7 +676,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: caeae7da403d1a34c802b76f5d93b999, type: 3}
+  m_audioClip: {fileID: 8300000, guid: c2b22a72e41966b4ca0b96d677fd4c13, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -772,39 +762,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &6622815387086020551
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6622815387086020549}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d57f2a2f37a3ab24cabaae8b1bf82cc9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  __messageText: 
-  MusicSound: {fileID: 0}
-  MusicSoundSource: {fileID: 0}
-  JumpSound: {fileID: 0}
-  JumpSoundSource: {fileID: 0}
-  PlayerLandSound: {fileID: 0}
-  PlayerLandSoundSource: {fileID: 0}
-  MonsterDeathSound: {fileID: 0}
-  MonsterDeathSoundSource: {fileID: 0}
-  MonsterShootSound: {fileID: 0}
-  MonsterShootSoundSource: {fileID: 0}
-  PortalSound: {fileID: 0}
-  PortalSoundSource: {fileID: 0}
-  ProjectileHitSound: {fileID: 0}
-  ProjectileHitSoundSource: {fileID: 0}
-  PlayerDeathSound: {fileID: 0}
-  PlayerDeathSoundSource: {fileID: 0}
-  EnterPhantSound: {fileID: 0}
-  EnterPhantSoundSource: {fileID: 0}
-  ExitPhantSound: {fileID: 0}
-  ExitPhantSoundSource: {fileID: 0}
 --- !u!1 &6622815387118827240
 GameObject:
   m_ObjectHideFlags: 0
@@ -815,7 +772,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6622815387118827243}
   - component: {fileID: 6622815387118827241}
-  - component: {fileID: 6622815387118827242}
   m_Layer: 0
   m_Name: PlayerLand
   m_TagString: Untagged
@@ -847,7 +803,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: caeae7da403d1a34c802b76f5d93b999, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 6efce69860282cf4ea9403509900a1e4, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -933,39 +889,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &6622815387118827242
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6622815387118827240}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d57f2a2f37a3ab24cabaae8b1bf82cc9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  __messageText: 
-  MusicSound: {fileID: 0}
-  MusicSoundSource: {fileID: 0}
-  JumpSound: {fileID: 0}
-  JumpSoundSource: {fileID: 0}
-  PlayerLandSound: {fileID: 0}
-  PlayerLandSoundSource: {fileID: 0}
-  MonsterDeathSound: {fileID: 0}
-  MonsterDeathSoundSource: {fileID: 0}
-  MonsterShootSound: {fileID: 0}
-  MonsterShootSoundSource: {fileID: 0}
-  PortalSound: {fileID: 0}
-  PortalSoundSource: {fileID: 0}
-  ProjectileHitSound: {fileID: 0}
-  ProjectileHitSoundSource: {fileID: 0}
-  PlayerDeathSound: {fileID: 0}
-  PlayerDeathSoundSource: {fileID: 0}
-  EnterPhantSound: {fileID: 0}
-  EnterPhantSoundSource: {fileID: 0}
-  ExitPhantSound: {fileID: 0}
-  ExitPhantSoundSource: {fileID: 0}
 --- !u!1 &6622815387176127461
 GameObject:
   m_ObjectHideFlags: 0
@@ -976,7 +899,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6622815387176127480}
   - component: {fileID: 6622815387176127462}
-  - component: {fileID: 6622815387176127463}
   m_Layer: 0
   m_Name: PlayerDeath
   m_TagString: Untagged
@@ -1008,7 +930,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: caeae7da403d1a34c802b76f5d93b999, type: 3}
+  m_audioClip: {fileID: 8300000, guid: fd018f5308da80b47b9c5cb0a6743bf8, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -1094,39 +1016,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &6622815387176127463
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6622815387176127461}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d57f2a2f37a3ab24cabaae8b1bf82cc9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  __messageText: 
-  MusicSound: {fileID: 0}
-  MusicSoundSource: {fileID: 0}
-  JumpSound: {fileID: 0}
-  JumpSoundSource: {fileID: 0}
-  PlayerLandSound: {fileID: 0}
-  PlayerLandSoundSource: {fileID: 0}
-  MonsterDeathSound: {fileID: 0}
-  MonsterDeathSoundSource: {fileID: 0}
-  MonsterShootSound: {fileID: 0}
-  MonsterShootSoundSource: {fileID: 0}
-  PortalSound: {fileID: 0}
-  PortalSoundSource: {fileID: 0}
-  ProjectileHitSound: {fileID: 0}
-  ProjectileHitSoundSource: {fileID: 0}
-  PlayerDeathSound: {fileID: 0}
-  PlayerDeathSoundSource: {fileID: 0}
-  EnterPhantSound: {fileID: 0}
-  EnterPhantSoundSource: {fileID: 0}
-  ExitPhantSound: {fileID: 0}
-  ExitPhantSoundSource: {fileID: 0}
 --- !u!1 &6622815387201761322
 GameObject:
   m_ObjectHideFlags: 0
@@ -1164,6 +1053,7 @@ Transform:
   - {fileID: 6622815387176127480}
   - {fileID: 6622815387573059950}
   - {fileID: 6622815385670467148}
+  - {fileID: 2737874052869935440}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1180,8 +1070,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   __messageText: 
-  MusicSound: {fileID: 8300000, guid: caeae7da403d1a34c802b76f5d93b999, type: 3}
-  MusicSoundSource: {fileID: 0}
   JumpSound: {fileID: 8300000, guid: fbad8c129019c924e9eee238fb95d0fc, type: 3}
   JumpSoundSource: {fileID: 6622815387244611389}
   PlayerLandSound: {fileID: 8300000, guid: 6efce69860282cf4ea9403509900a1e4, type: 3}
@@ -1200,6 +1088,8 @@ MonoBehaviour:
   EnterPhantSoundSource: {fileID: 6622815387573059936}
   ExitPhantSound: {fileID: 8300000, guid: 2966917b8f069b4429d6a094c312a295, type: 3}
   ExitPhantSoundSource: {fileID: 6622815385670467150}
+  BlocksExplodeSound: {fileID: 8300000, guid: 4db193d78f39cf34c8e9271c3035817c, type: 3}
+  BlocksExplodeSoundSource: {fileID: 5728836864101486981}
 --- !u!1 &6622815387244611388
 GameObject:
   m_ObjectHideFlags: 0
@@ -1210,7 +1100,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6622815387244611391}
   - component: {fileID: 6622815387244611389}
-  - component: {fileID: 6622815387244611390}
   m_Layer: 0
   m_Name: PlayerJump
   m_TagString: Untagged
@@ -1242,7 +1131,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: caeae7da403d1a34c802b76f5d93b999, type: 3}
+  m_audioClip: {fileID: 8300000, guid: fbad8c129019c924e9eee238fb95d0fc, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -1328,39 +1217,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &6622815387244611390
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6622815387244611388}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d57f2a2f37a3ab24cabaae8b1bf82cc9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  __messageText: 
-  MusicSound: {fileID: 0}
-  MusicSoundSource: {fileID: 0}
-  JumpSound: {fileID: 0}
-  JumpSoundSource: {fileID: 0}
-  PlayerLandSound: {fileID: 0}
-  PlayerLandSoundSource: {fileID: 0}
-  MonsterDeathSound: {fileID: 0}
-  MonsterDeathSoundSource: {fileID: 0}
-  MonsterShootSound: {fileID: 0}
-  MonsterShootSoundSource: {fileID: 0}
-  PortalSound: {fileID: 0}
-  PortalSoundSource: {fileID: 0}
-  ProjectileHitSound: {fileID: 0}
-  ProjectileHitSoundSource: {fileID: 0}
-  PlayerDeathSound: {fileID: 0}
-  PlayerDeathSoundSource: {fileID: 0}
-  EnterPhantSound: {fileID: 0}
-  EnterPhantSoundSource: {fileID: 0}
-  ExitPhantSound: {fileID: 0}
-  ExitPhantSoundSource: {fileID: 0}
 --- !u!1 &6622815387573059949
 GameObject:
   m_ObjectHideFlags: 0
@@ -1371,7 +1227,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6622815387573059950}
   - component: {fileID: 6622815387573059936}
-  - component: {fileID: 6622815387573059951}
   m_Layer: 0
   m_Name: PhantEnter
   m_TagString: Untagged
@@ -1489,36 +1344,3 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &6622815387573059951
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6622815387573059949}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d57f2a2f37a3ab24cabaae8b1bf82cc9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  __messageText: 
-  MusicSound: {fileID: 0}
-  MusicSoundSource: {fileID: 0}
-  JumpSound: {fileID: 0}
-  JumpSoundSource: {fileID: 0}
-  PlayerLandSound: {fileID: 0}
-  PlayerLandSoundSource: {fileID: 0}
-  MonsterDeathSound: {fileID: 0}
-  MonsterDeathSoundSource: {fileID: 0}
-  MonsterShootSound: {fileID: 0}
-  MonsterShootSoundSource: {fileID: 0}
-  PortalSound: {fileID: 0}
-  PortalSoundSource: {fileID: 0}
-  ProjectileHitSound: {fileID: 0}
-  ProjectileHitSoundSource: {fileID: 0}
-  PlayerDeathSound: {fileID: 0}
-  PlayerDeathSoundSource: {fileID: 0}
-  EnterPhantSound: {fileID: 0}
-  EnterPhantSoundSource: {fileID: 0}
-  ExitPhantSound: {fileID: 0}
-  ExitPhantSoundSource: {fileID: 0}

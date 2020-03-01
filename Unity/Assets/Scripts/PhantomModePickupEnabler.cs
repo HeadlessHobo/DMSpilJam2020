@@ -20,7 +20,7 @@ namespace DefaultNamespace
 
         private bool ShowSetupSettings()
         {
-            return true;
+            return false;
         }
     
         private void Awake()

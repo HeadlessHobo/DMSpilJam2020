@@ -61,7 +61,8 @@ public class WinTrigger : MonoBehaviour
 
     private void OnUnitEntered(UnitType unitType, IUnit unit)
     {
+        MyGameManager.CurrentLevel++;
         SoundManagerDefault.Instance.PlayPortalSound();
-        _fadeUi.FadeOut();
+        _fadeUi.FadeOut("Level " + MyGameManager.CurrentLevel);
     }
 }

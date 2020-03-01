@@ -205,6 +205,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55e179ea6d3a4dd4bdbfaa7a3e1acb5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _phantomModeEnabledAfterPickup: 0
+  _phantomModeEnabledAfterPickup: 1
   _triggerGo: {fileID: 7887344482172632720}
   _rootGo: {fileID: 8486268002227924150}

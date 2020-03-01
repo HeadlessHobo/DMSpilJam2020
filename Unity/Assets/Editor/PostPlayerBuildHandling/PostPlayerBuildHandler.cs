@@ -55,7 +55,7 @@ namespace Editor.PostPlayerBuildHandling
 
         private static string GetRemoteUploadingPath()
         {
-            return "/mnt/storage/public/unity_builds/" + PlayerSettings.productName;
+            return "/mnt/storage/public/game_builds/" + PlayerSettings.productName;
         }
 
         private static string GetRemoteUploadingFile()
@@ -71,8 +71,11 @@ namespace Editor.PostPlayerBuildHandling
             using (var client = new SftpClient(connectionInfo))
             {
                 client.Connect();
-                client.CreateDirectory(GetRemoteUploadingPath());
-                 using (FileStream fsSource = new FileStream(GetPathToInstallerExeTempFile(),
+                if(!client.Exists(GetRemoteUploadingPath()))
+                {
+                    client.CreateDirectory(GetRemoteUploadingPath());
+                }
+                using (FileStream fsSource = new FileStream(GetPathToInstallerExeTempFile(),
                      FileMode.Open, FileAccess.Read))
                  {
                      client.UploadFile(fsSource, GetRemoteUploadingFile());

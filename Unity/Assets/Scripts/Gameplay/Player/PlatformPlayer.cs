@@ -109,6 +109,11 @@ namespace Gameplay.Player
             }
         }
 
+        public void OnRestart(InputAction.CallbackContext context)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+
         protected override void OnDestroy()
         {
             base.OnDestroy();

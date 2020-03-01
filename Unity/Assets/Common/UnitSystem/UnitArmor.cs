@@ -19,7 +19,7 @@ namespace Common.UnitSystem
         private Life _life;
         private UnitHealthStats _unitHealthStats;
         private UnitSetup _unitSetup;
-        private List<Func<bool>> _deathRequirements;
+        private List<Func<bool>> _destroyRequirements;
         public event Died Died;
         public event TookDamage TookDamage;
         public event KilledUnit KilledUnit;
@@ -27,9 +27,7 @@ namespace Common.UnitSystem
         public HealthFlag HealthFlags { get; }
         public bool IsDead => _life.Health.Value <= 0;
 
-
-        
-        public UnitArmor(IUnit ownerUnit, HealthFlag healthFlags, UnitSetup unitSetup, params Func<bool>[] deathRequirements)
+        public UnitArmor(IUnit ownerUnit, HealthFlag healthFlags, UnitSetup unitSetup, params Func<bool>[] destroyRequirements)
         {
             _unitSetup = unitSetup;
             _ownerUnit = ownerUnit;
@@ -38,7 +36,12 @@ namespace Common.UnitSystem
             _life = new Life(ownerUnit, _unitHealthStats);
             _life.Died += OnDied;
             _life.TookDamage += (damage, unitDealingDamage) => TookDamage?.Invoke(damage, unitDealingDamage);
-            _deathRequirements = deathRequirements.ToList();
+            _destroyRequirements = destroyRequirements.ToList();
+        }
+
+        public void AddDestroyRequirement(Func<bool> destroyRequirement)
+        {
+            _destroyRequirements.Add(destroyRequirement);
         }
 
         public void TakeDamage(int damage, IUnit unitDealingDamage)
@@ -63,7 +66,7 @@ namespace Common.UnitSystem
 
         private bool HasCompletedAllDeathRequirements()
         {
-            foreach (var deathRequirement in _deathRequirements)
+            foreach (var deathRequirement in _destroyRequirements)
             {
                 if (!deathRequirement())
                 {

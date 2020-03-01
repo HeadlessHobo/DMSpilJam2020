@@ -33,7 +33,7 @@ MonoBehaviour:
         _minStatValue: -2.1474836e+9
         _maxStatValue: -1
     _missileSpawnData:
-      UnitsToDamage: 0100000000000000
+      UnitsToDamage: 010000000000000002000000
       MovementSpeed:
         _startStat: 25
         _minStatValue: -2.1474836e+9

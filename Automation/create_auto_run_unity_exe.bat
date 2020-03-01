@@ -10,7 +10,7 @@ chcp 65001
 @echo off
 @echo ;!@Install@!UTF-8! > %current_dir%config.txt
 @echo Title="%game_name%" >> %current_dir%config.txt
-@echo BeginPrompt="Do you want to install %game_name%?" >> %current_dir%config.txt
+@echo BeginPrompt="Do you want to run %game_name%?" >> %current_dir%config.txt
 @echo RunProgram="%game_name%.exe" >> %current_dir%config.txt
 @echo ;!@InstallEnd@! >> %current_dir%config.txt
 @echo on

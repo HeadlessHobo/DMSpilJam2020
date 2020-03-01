@@ -11,6 +11,8 @@ public class MyGameManager : Singleton<MyGameManager>
 {
     private FadeUi _fadeUi;
     private GameObject _musicGo;
+
+    public static int CurrentLevel = 1;
     
     [SerializeField]
     private bool _phantomModeEnabled;

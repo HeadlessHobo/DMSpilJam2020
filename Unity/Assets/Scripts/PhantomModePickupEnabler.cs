@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace DefaultNamespace
 {
-    public class PhantomEnergyPickupEnabler : MonoBehaviour
+    public class PhantomModePickupEnabler : MonoBehaviour
     {
         [SerializeField]
         private bool _phantomModeEnabledAfterPickup;
@@ -20,7 +20,7 @@ namespace DefaultNamespace
 
         private bool ShowSetupSettings()
         {
-            return true;
+            return false;
         }
     
         private void Awake()

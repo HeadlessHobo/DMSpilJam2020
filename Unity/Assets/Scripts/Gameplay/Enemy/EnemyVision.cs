@@ -12,19 +12,21 @@ namespace Gameplay.Enemy
     
     public class EnemyVision : IUpdate
     {
-        private Transform _movementTransform;
+         Transform _movementTransform;
         private Vector2 _startLookDirection;
         private Data _data;
         private bool _wasPlayerWithinVisionConeLastFrame;
         private bool _canSeePlayer;
         private LayerMask _visionLayermask;
+        private Transform _enemyVisionStartTransform;
 
         public event PlayerEnteredVision PlayerEnteredVision;
         public event PlayerExitedVision PlayerExitedVision;
         
-        public EnemyVision(MovementSetup movementSetup, Data data, Vector2 startLookDirection, LayerMask visionLayermask)
+        public EnemyVision(MovementSetup movementSetup, Transform visionStartTransform, Data data, Vector2 startLookDirection, LayerMask visionLayermask)
         {
             _visionLayermask = visionLayermask;
+            _enemyVisionStartTransform = visionStartTransform;
             _movementTransform = movementSetup.MovementTransform;
             _data = data;
             _startLookDirection = startLookDirection;
@@ -57,7 +59,7 @@ namespace Gameplay.Enemy
 
         private bool IsNoObstructionToLineOfSightToPlayer(PlatformPlayer platformPlayer)
         {
-            RaycastHit2D hit = Physics2D.Raycast(_movementTransform.position, DirectionToPlayer(platformPlayer), int.MaxValue, _visionLayermask);
+            RaycastHit2D hit = Physics2D.Raycast(_enemyVisionStartTransform.position, DirectionToPlayer(platformPlayer), int.MaxValue, _visionLayermask);
             return hit.transform != null && hit.transform.GetComponentInParent<PlatformPlayer>() != null;
         }
 
@@ -70,7 +72,7 @@ namespace Gameplay.Enemy
 
         private Vector2 DirectionToPlayer(PlatformPlayer platformPlayer)
         {
-            return (platformPlayer.Position - (Vector2)_movementTransform.position).normalized;
+            return (platformPlayer.Position - (Vector2)_enemyVisionStartTransform.position).normalized;
         }
 
         public Vector2 ForwardDirection()

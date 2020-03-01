@@ -27,6 +27,9 @@ namespace Gameplay.Enemy
         [SerializeField]
         private EnemyAnim _enemyAnim;
 
+        [SerializeField] 
+        private Transform _enemyVisionStartTransform;
+
         [SerializeField]
         private float _deathAnimationDuration;
 
@@ -46,7 +49,7 @@ namespace Gameplay.Enemy
             SlowManager = new UnitSlowManager(_statsManager.MovementStats);
             Armor = new UnitArmor(this, HealthFlag.Killable | HealthFlag.Destructable, _movementSetup, () => _deathAnimationPlayed);
             Armor.Died += OnDied;
-            EnemyVision enemyVision = new EnemyVision(_movementSetup, _statsManager.EnemySpecificStats.EnemyVisionData, Vector2.left, _visionLayermask);
+            EnemyVision enemyVision = new EnemyVision(_movementSetup, _enemyVisionStartTransform, _statsManager.EnemySpecificStats.EnemyVisionData, Vector2.left, _visionLayermask);
             EnemyMissileLauncher enemyMissileLauncher = new EnemyMissileLauncher(enemyVision, _movementSetup,  _statsManager.UnitAttackStats, 
                 _statsManager.EnemySpecificStats.MissileSpawnData,
                 _missileLaunchData,
@@ -64,7 +67,7 @@ namespace Gameplay.Enemy
         protected override void OnDrawGizmos()
         {
             base.OnDrawGizmos();
-            DebugExtension.DebugCone(_movementSetup.MovementTransform.position, Vector2.left * 10, Color.green, 
+            DebugExtension.DebugCone(_enemyVisionStartTransform.position, (_movementSetup.MovementTransform.rotation * Vector2.left) * 10, Color.green, 
                 _statsManager.EnemySpecificStats.EnemyVisionData.ConeInDegrees.Value, 0, false);
         }
     }

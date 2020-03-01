@@ -186,7 +186,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   phantomEnergyImage: {fileID: 4771903028454674402}
-  BarRootGo: {fileID: 4771903028794860895}
+  BarRootGo: {fileID: 8845127269702599429}
 --- !u!1 &4771903029922641910
 GameObject:
   m_ObjectHideFlags: 0

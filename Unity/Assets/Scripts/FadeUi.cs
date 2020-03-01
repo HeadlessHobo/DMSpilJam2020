@@ -1,6 +1,7 @@
 ﻿using System;
 using Plugins.LeanTween.Framework;
 using Plugins.Timer.Source;
+using TMPro;
 using UnityEngine;
 
 namespace DefaultNamespace
@@ -12,6 +13,9 @@ namespace DefaultNamespace
     
         [SerializeField]
         private CanvasGroup _textCanvasGroup;
+        
+        [SerializeField]
+        private TextMeshProUGUI _fadeOutLabel;
 
         [SerializeField] 
         private float _fadeToBlackTime;
@@ -35,8 +39,9 @@ namespace DefaultNamespace
             _backgroundCanvasGroup.LeanAlpha(0, _fadeToBlackTime);
         }
 
-        public void FadeOut()
+        public void FadeOut(string fadeOutText)
         {
+            _fadeOutLabel.text = fadeOutText;
             _backgroundCanvasGroup.LeanAlpha(1, _fadeToBlackTime);
             Timer.Register(_fadeToBlackTime, BackgroundShown);
             Timer.Register(_fadeToBlackTime + _stayInBlackTime, () => FadedOut?.Invoke());

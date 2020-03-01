@@ -115,9 +115,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _backgroundCanvasGroup: {fileID: 2802566678872288998}
   _textCanvasGroup: {fileID: 2802566680004989583}
+  _fadeOutLabel: {fileID: 2802566680004989582}
   _fadeToBlackTime: 2
   _textFadeInTime: 1
-  _stayInBlackTime: 2
+  _stayInBlackTime: 3
 --- !u!1 &2802566678872288996
 GameObject:
   m_ObjectHideFlags: 0

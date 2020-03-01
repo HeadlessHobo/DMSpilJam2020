@@ -56,3 +56,7 @@ MonoBehaviour:
         _startStat: 0.1
         _minStatValue: -2.1474836e+9
         _maxStatValue: -1
+      PhantomLockout:
+        _startStat: 0.5
+        _minStatValue: -2.1474836e+9
+        _maxStatValue: -1

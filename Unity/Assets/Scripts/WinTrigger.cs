@@ -24,10 +24,12 @@ public class WinTrigger : MonoBehaviour
     private DropdownList<string> GetAllScenes()
     {
         DropdownList<string> allScenes = new DropdownList<string>();
+        #if UNITY_EDITOR
         foreach (var scene in EditorBuildSettings.scenes)
         {
             allScenes.Add(Path.GetFileNameWithoutExtension(scene.path), Path.GetFileNameWithoutExtension(scene.path));
         }
+        #endif
 
         return allScenes;
     }

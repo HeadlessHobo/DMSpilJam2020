@@ -34,7 +34,7 @@ namespace Gameplay.Player
 
         private void OnHitGround()
         {
-            _playerAnim.AnimPlayerRun();
+            _playerAnim.AnimPlayerIdle();
         }
 
         public void FixedUpdate()
@@ -47,12 +47,12 @@ namespace Gameplay.Player
 
         private void UpdateAnimator()
         {
-            _playerAnim.SetSpeed(_rigidbody2D.velocity.magnitude);
+            _playerAnim.SetSpeed(Mathf.Abs(_rigidbody2D.velocity.x));
             if (GetMovingDirection() == Direction.Left)
             {
                 _graphicsTransform.SetScaleX(-_originalGraphicsScaleX);
             }
-            else
+            else if(GetMovingDirection() == Direction.Right)
             {
                 _graphicsTransform.SetScaleX(_originalGraphicsScaleX);
             }

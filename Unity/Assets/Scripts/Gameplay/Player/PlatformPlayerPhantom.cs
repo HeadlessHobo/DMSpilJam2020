@@ -2,6 +2,7 @@
 using System.Timers;
 using Common.UnitSystem;
 using Common.UnitSystem.LifeCycle;
+using DefaultNamespace;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Yurowm.DebugTools;
@@ -18,6 +19,7 @@ namespace Gameplay.Player
         
         public bool IsPhantomModeActive { get; private set; }
         public bool IsPhantomModeEnabled { get; set; }
+        public bool IsLockedOut { get; private set; }
         public float CurrentFillProcent => _data.PhantomEnergy.CurrentProcent;
 
         public PlatformPlayerPhantom(PlatformPlayerGraphics platformPlayerGraphics, Color phantomColor, Data data)
@@ -25,11 +27,13 @@ namespace Gameplay.Player
             _platformPlayerGraphics = platformPlayerGraphics;
             _phantomColor = phantomColor;
             _data = data;
+            IsLockedOut = true;
+            Timer.Register(_data.PhantomLockout.Value, () => IsLockedOut = false);
         }
         
         public void OnPhantomModeDown()
         {
-            if (IsPhantomModeEnabled)
+            if (IsPhantomModeEnabled && !IsLockedOut)
             {
                 if (IsPhantomModeActive)
                 {
@@ -69,10 +73,15 @@ namespace Gameplay.Player
 
         private void UsedPhantomEnergy()
         {
-            if (_data.PhantomEnergy.Value > 0)
+            if (_data.PhantomEnergy.Value > 0 && !DebugShortcuts.UnlimitedPhantomModeActivated)
             {
                 _data.PhantomEnergy.DecreaseTempStat(_data.PhantomEnergyUsagePerCycle.Value);
             }
+        }
+
+        public void AddPhantomEnergy(float phantomEnergyToAdd)
+        {
+            _data.PhantomEnergy.IncreaseTempStat(phantomEnergyToAdd);
         }
 
         public void Update()
@@ -92,6 +101,7 @@ namespace Gameplay.Player
             public Stat PhantomEnergy;
             public Stat PhantomEnergyUsagePerCycle;
             public Stat PhantomCycleInterval;
+            public Stat PhantomLockout;
         }
     }
 }

@@ -1,5 +1,5 @@
 ;!@Install@!UTF-8! 
-Title="DefaultGameJamProject" 
-BeginPrompt="Do you want to install DefaultGameJamProject?" 
-RunProgram="DefaultGameJamProject.exe" 
+Title="DMSpilJamPrototype" 
+BeginPrompt="Do you want to run DMSpilJamPrototype?" 
+RunProgram="DMSpilJamPrototype.exe" 
 ;!@InstallEnd@! 

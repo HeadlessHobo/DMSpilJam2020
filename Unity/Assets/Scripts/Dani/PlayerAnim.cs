@@ -23,4 +23,9 @@ public class PlayerAnim : MonoBehaviour
 		PlayerAnimator.Play("RunningAnimation");
 	}
 	
+	public void AnimPlayerIdle()
+	{
+		PlayerAnimator.Play("PlayerIdle");
+	}
+	
 }

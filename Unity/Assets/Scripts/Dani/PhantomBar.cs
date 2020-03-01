@@ -8,6 +8,11 @@ public class PhantomBar : MonoBehaviour
 {
 	public Image phantomEnergyImage;
 	public GameObject BarRootGo;
+	
+	public Image PhantomOverlay;
+	
+	
+	
 
     void Update()
     {
@@ -16,17 +21,28 @@ public class PhantomBar : MonoBehaviour
 	    {
 		    BarRootGo.SetActive(platformPlayerPhantom.IsPhantomModeEnabled);
 		    phantomEnergyImage.fillAmount = platformPlayerPhantom.CurrentFillProcent;
-		/*	
+			
+			
+			
 			if(platformPlayerPhantom.IsPhantomModeActive)
 		{
-			
+						
+		PhantomOverlay.GetComponent<Image>().color = Color.green;
+		
+		Color Temp = PhantomOverlay.GetComponent<Image>().color;
+			Temp.a = 0.5f;
+			PhantomOverlay.GetComponent<Image>().color = Temp;
+		
 		}
 		else
 		{
-			
+			PhantomOverlay.GetComponent<Image>().color = Color.white;
+			Color Temp = PhantomOverlay.GetComponent<Image>().color;
+			Temp.a = 1f;
+			PhantomOverlay.GetComponent<Image>().color = Temp;
 			
 		}
-		*/
+		//Debug.Log("sdkfjlsdfkj");
 	    }
 		
 		

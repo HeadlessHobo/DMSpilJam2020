@@ -52,6 +52,7 @@ namespace Gameplay.Player
             PhantomEnergyCycle();
             IsPhantomModeActive = true;
             _platformPlayerGraphics.ChangeColor(_phantomColor);
+            SoundManagerDefault.Instance.PlayEntPhantSound();
         }
 
         private void DeactivatePhantomMode()
@@ -60,6 +61,7 @@ namespace Gameplay.Player
             _currentPhantomEnergyCycleTimer.Cancel();
             _currentPhantomEnergyCycleTimer.Cancel();
             _platformPlayerGraphics.ChangeColor(Color.white);
+            SoundManagerDefault.Instance.PlayExitPhantSound();
         }
 
         private void PhantomEnergyCycle()

@@ -11,5 +11,8 @@ namespace Generated
         public const string TUTORIAL = "Tutorial";
         public const string WINSCENE = "WinScene";
         public const string PROTOTYPE = "Prototype";
+        public const string LEVEL2 = "Level2";
+        public const string LEVEL3 = "Level3";
+        public const string LEVEL4 = "Level4";
     }
 }

@@ -57,6 +57,7 @@ namespace Gameplay.Enemy
         private void OnDied(IUnit killedBy)
         {
             _enemyAnim.AnimEnDeath();
+            SoundManagerDefault.Instance.PlayMonsterDeathSound();
             Timer.Register(_deathAnimationDuration, () => _deathAnimationPlayed = true);
         }
 

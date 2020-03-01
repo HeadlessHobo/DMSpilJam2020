@@ -34,11 +34,11 @@ namespace Gameplay.Missile
             {
                 return;
             }
-            
-            
+
             if (_data.UnitsToDamage.Contains(unitType))
             {
                 unit.GetArmor<IArmor>().TakeDamage((int)_data.Damage.Value, _owner);
+                SoundManagerDefault.Instance.PlayProjectileHitSound();
             }
             
             _missileArmor.Die(); 

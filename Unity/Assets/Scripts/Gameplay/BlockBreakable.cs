@@ -24,6 +24,7 @@ namespace Gameplay
 
         private void ArmorOnDied(IUnit killedBy)
         {
+            SoundManagerDefault.Instance.PlayBlocksExplodeSound();
             foreach (var breakablePart in _breakableParts)
             {
                 breakablePart.simulated = true;

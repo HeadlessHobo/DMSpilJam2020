@@ -16,6 +16,19 @@ public class PhantomBar : MonoBehaviour
 	    {
 		    BarRootGo.SetActive(platformPlayerPhantom.IsPhantomModeEnabled);
 		    phantomEnergyImage.fillAmount = platformPlayerPhantom.CurrentFillProcent;
+		/*	
+			if(platformPlayerPhantom.IsPhantomModeActive)
+		{
+			
+		}
+		else
+		{
+			
+			
+		}
+		*/
 	    }
+		
+		
     }
 }

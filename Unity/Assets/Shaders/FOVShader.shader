@@ -27,6 +27,7 @@ SubShader{
 
         sampler2D _MainTex;
         float4 _MainTex_ST;
+        float _ConeAngle;
 
         fixed4 _Color;
 
@@ -47,6 +48,11 @@ SubShader{
             o.position = UnityObjectToClipPos(v.vertex);
             o.uv = TRANSFORM_TEX(v.uv, _MainTex);
             o.color = v.color;
+            float4 normalizedVertex = normalize(v.vertex);
+            float angle = degrees(dot(float2(-0.5, 0), float2(normalizedVertex.x, normalizedVertex.y)));
+            
+
+
             return o;
         }
 

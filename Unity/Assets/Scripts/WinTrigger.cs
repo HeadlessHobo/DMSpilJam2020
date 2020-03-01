@@ -17,6 +17,7 @@ public class WinTrigger : MonoBehaviour
     private TriggerNotifier _triggerNotifier;
     private DropdownList<string> _allScenes;
     private FadeUi _fadeUi;
+    private bool _hasBeenTriggered;
 
     [SerializeField, Dropdown("_allScenes")] 
     private string _sceneToLoad;
@@ -61,8 +62,12 @@ public class WinTrigger : MonoBehaviour
 
     private void OnUnitEntered(UnitType unitType, IUnit unit)
     {
-        MyGameManager.CurrentLevel++;
-        SoundManagerDefault.Instance.PlayPortalSound();
-        _fadeUi.FadeOut("Level " + MyGameManager.CurrentLevel);
+        if (!_hasBeenTriggered)
+        {
+            MyGameManager.CurrentLevel++;
+            SoundManagerDefault.Instance.PlayPortalSound();
+            _fadeUi.FadeOut("Level " + MyGameManager.CurrentLevel);
+            _hasBeenTriggered = true;
+        }
     }
 }

@@ -49,8 +49,10 @@ SubShader{
             o.uv = TRANSFORM_TEX(v.uv, _MainTex);
             o.color = v.color;
             float4 normalizedVertex = normalize(v.vertex);
-            float angle = degrees(dot(float2(-0.5, 0), float2(normalizedVertex.x, normalizedVertex.y)));
-            
+            float angle = degrees(dot(float2(0.5, 0), float2(0, 0.5)));
+            if(angle < _ConeAngle){
+                o.color = 0;
+            }        
 
 
             return o;
@@ -60,7 +62,7 @@ SubShader{
             fixed4 col = tex2D(_MainTex, i.uv);
             col *= _Color;
             col *= i.color;
-            return col;
+            return i.color;
         }
 
         ENDCG

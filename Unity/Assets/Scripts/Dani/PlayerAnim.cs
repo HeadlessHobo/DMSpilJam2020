@@ -5,6 +5,8 @@ using UnityEngine;
 public class PlayerAnim : MonoBehaviour
 {
 	public Animator PlayerAnimator;
+	
+	public Animator GroundEffect;
 
 	private static readonly int Speed = Animator.StringToHash("Speed");
 
@@ -26,6 +28,11 @@ public class PlayerAnim : MonoBehaviour
 	public void AnimPlayerIdle()
 	{
 		PlayerAnimator.Play("PlayerIdle");
+	}
+	
+	public void GroundedEffect()
+	{
+		GroundEffect.Play("GroundedAnimation");
 	}
 	
 }

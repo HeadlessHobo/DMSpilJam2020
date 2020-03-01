@@ -2353,6 +2353,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 987382670230574271, guid: 0ee67f32e93f98648bafcd16b9693805,
+        type: 3}
+      propertyPath: _phantomModeEnabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 987382670414512424, guid: 0ee67f32e93f98648bafcd16b9693805,
         type: 3}
       propertyPath: m_Name

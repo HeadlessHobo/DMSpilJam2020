@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace DefaultNamespace
 {
-    public class PhantomEnergyPickupEnabler : MonoBehaviour
+    public class PhantomModePickupEnabler : MonoBehaviour
     {
         [SerializeField]
         private bool _phantomModeEnabledAfterPickup;

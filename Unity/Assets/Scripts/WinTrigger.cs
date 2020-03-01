@@ -61,6 +61,7 @@ public class WinTrigger : MonoBehaviour
 
     private void OnUnitEntered(UnitType unitType, IUnit unit)
     {
+        SoundManagerDefault.Instance.PlayPortalSound();
         _fadeUi.FadeOut();
     }
 }

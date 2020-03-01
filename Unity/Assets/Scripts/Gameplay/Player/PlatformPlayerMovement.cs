@@ -34,6 +34,7 @@ namespace Gameplay.Player
 
         private void OnHitGround()
         {
+            SoundManagerDefault.Instance.PlayLandingSound();
             _playerAnim.AnimPlayerIdle();
         }
 
@@ -140,6 +141,7 @@ namespace Gameplay.Player
         {
             if (_playerGround.IsGrounded())
             {
+                SoundManagerDefault.Instance.PlayJumpSound();
                 _playerAnim.AnimPlayerJump();
                 _rigidbody2D.AddForce(Vector2.up * _platformPlayerMovementStats.JumpForce, ForceMode2D.Impulse);
             }

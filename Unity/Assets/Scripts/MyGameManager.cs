@@ -3,15 +3,20 @@ using DefaultNamespace;
 using Gamelogic.Extensions;
 using Gameplay.Enemy;
 using Gameplay.Player;
+using Generated;
 using NaughtyAttributes;
 using UnityEngine;
 
 public class MyGameManager : Singleton<MyGameManager>
 {
     private FadeUi _fadeUi;
+    private GameObject _musicGo;
     
     [SerializeField]
     private bool _phantomModeEnabled;
+
+    [SerializeField] 
+    private GameObject _musicPrefab;
 
     public PlatformPlayer PlatformPlayer { get; private set; }
 
@@ -25,6 +30,21 @@ public class MyGameManager : Singleton<MyGameManager>
             }
 
             return _fadeUi;
+        }
+    }
+
+    private void Awake()
+    {
+        CreateMusicGoIfNotExists();
+    }
+
+    private void CreateMusicGoIfNotExists()
+    {
+        GameObject musicGo = GameObject.FindWithTag(Tags.MUSIC);
+        if (musicGo == null)
+        {
+            musicGo = Instantiate(_musicPrefab);
+            DontDestroyOnLoad(musicGo);
         }
     }
 

@@ -50,6 +50,7 @@ namespace Gameplay.Enemy
 
         private void LaunchMissile()
         {
+            SoundManagerDefault.Instance.PlayMonsterShootSound();
             _missileData.Owner = _enemy;
             _missileData.MissileDirection = _enemyVision.ForwardDirection();
             _enemyAnim.AnimShoot();

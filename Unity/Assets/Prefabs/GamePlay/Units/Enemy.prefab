@@ -289,6 +289,9 @@ MonoBehaviour:
   _enemyAnim: {fileID: 1388379492538693887}
   _enemyVisionStartTransform: {fileID: 6437453328600625572}
   _deathAnimationDuration: 0.35
+  _deathExplosionPrefab: {fileID: 696391829222574247, guid: a333e1d7a5a3e36409b8e6cb45e63ff1,
+    type: 3}
+  _deathExplosionLiveTime: 1
 --- !u!1 &4165435068930633118
 GameObject:
   m_ObjectHideFlags: 0

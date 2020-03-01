@@ -1,5 +1,6 @@
 ﻿using Common.UnitSystem;
 using Common.UnitSystem.Stats;
+using Plugins.LeanTween.Framework;
 using Plugins.Timer.Source;
 using UnityEngine;
 
@@ -33,6 +34,12 @@ namespace Gameplay.Enemy
         [SerializeField]
         private float _deathAnimationDuration;
 
+        [SerializeField] 
+        private GameObject _deathExplosionPrefab;
+
+        [SerializeField] 
+        private float _deathExplosionLiveTime;
+
         public override UnitType UnitType => UnitType.Enemy;
         protected override IUnitStatsManager StatsManager => _statsManager;
         protected override IArmor Armor { get; set; }
@@ -61,7 +68,16 @@ namespace Gameplay.Enemy
         {
             _enemyAnim.AnimEnDeath();
             SoundManagerDefault.Instance.PlayMonsterDeathSound();
-            Timer.Register(_deathAnimationDuration, () => _deathAnimationPlayed = true);
+            Timer.Register(_deathAnimationDuration, OnDeathAnimationPlayed);
+        }
+
+        private void OnDeathAnimationPlayed()
+        {
+            GameObject spawnedDeathExplosion = Instantiate(_deathExplosionPrefab,
+                _movementSetup.MovementTransform.position, Quaternion.identity);
+            Destroy(spawnedDeathExplosion, _deathExplosionLiveTime);
+            spawnedDeathExplosion.LeanAlpha(0, _deathExplosionLiveTime);
+            _deathAnimationPlayed = true;
         }
 
         protected override void OnDrawGizmos()

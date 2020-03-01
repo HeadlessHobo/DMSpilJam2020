@@ -17,6 +17,7 @@ public class PlayerAnim : MonoBehaviour
 	
 	public void AnimPlayerJump()
 	{
+		StopGroundedEffect();
 		PlayerAnimator.Play("PlayerJump");
 	}
 	
@@ -32,7 +33,12 @@ public class PlayerAnim : MonoBehaviour
 	
 	public void GroundedEffect()
 	{
-		GroundEffect.Play("GroundedAnimation");
+		GroundEffect.ResetTrigger("Stop");
+		GroundEffect.Play("GroundedAnimation"); }
+
+	public void StopGroundedEffect()
+	{
+		GroundEffect.SetTrigger("Stop");
 	}
-	
+
 }

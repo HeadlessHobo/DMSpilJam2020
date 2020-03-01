@@ -36,6 +36,7 @@ namespace Gameplay.Player
         {
             SoundManagerDefault.Instance.PlayLandingSound();
             _playerAnim.AnimPlayerIdle();
+            _playerAnim.GroundedEffect();
         }
 
         public void FixedUpdate()

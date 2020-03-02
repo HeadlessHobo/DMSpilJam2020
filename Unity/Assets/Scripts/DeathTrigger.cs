@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Common.UnitSystem;
 using Common.Util;
+using Gameplay.Player;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -18,7 +19,11 @@ namespace DefaultNamespace
 
         private void OnUnitEntered(UnitType unitType, IUnit unit)
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            PlatformPlayer platformPlayer = unit as PlatformPlayer;
+            if (platformPlayer != null && !platformPlayer.GetArmor<IArmor>().IsInvulnerable)
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            }
         }
     }
 }

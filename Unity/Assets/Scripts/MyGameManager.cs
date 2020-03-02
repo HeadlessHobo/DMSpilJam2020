@@ -21,6 +21,7 @@ public class MyGameManager : Singleton<MyGameManager>
     private GameObject _musicPrefab;
 
     public PlatformPlayer PlatformPlayer { get; private set; }
+    public bool HasCompletedLevel { get; set; }
 
     public FadeUi FadeUi
     {

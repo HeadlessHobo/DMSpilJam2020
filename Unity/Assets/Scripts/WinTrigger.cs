@@ -65,6 +65,7 @@ public class WinTrigger : MonoBehaviour
     {
         if (!_hasBeenTriggered)
         {
+            MyGameManager.Instance.HasCompletedLevel = true;
             PlatformPlayer platformPlayer = unit as PlatformPlayer;
             platformPlayer?.GetArmor<IArmor>().MakeInvulnerable();
             MyGameManager.CurrentLevel++;

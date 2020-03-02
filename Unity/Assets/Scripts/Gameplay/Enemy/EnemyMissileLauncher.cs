@@ -50,13 +50,16 @@ namespace Gameplay.Enemy
 
         private void LaunchMissile()
         {
-            SoundManagerDefault.Instance.PlayMonsterShootSound();
-            _missileData.Owner = _enemy;
-            _missileData.MissileDirection = _enemyVision.ForwardDirection();
-            _enemyAnim.AnimShoot();
-            Spawner.Spawn(_missileLaunchData.MissilePrefab, _missileLaunchData.SpawnPoint.position,
-                _movementSetup.MovementTransform.eulerAngles, _missileData);
-            _attackTimer = Timer.Register(_unitAttackStats.AttackSpeed, LaunchMissile);
+            if (!MyGameManager.Instance.HasCompletedLevel)
+            {
+                SoundManagerDefault.Instance.PlayMonsterShootSound();
+                _missileData.Owner = _enemy;
+                _missileData.MissileDirection = _enemyVision.ForwardDirection();
+                _enemyAnim.AnimShoot();
+                Spawner.Spawn(_missileLaunchData.MissilePrefab, _missileLaunchData.SpawnPoint.position,
+                    _movementSetup.MovementTransform.eulerAngles, _missileData);
+                _attackTimer = Timer.Register(_unitAttackStats.AttackSpeed, LaunchMissile);
+            }
         }
         
         private void OnPlayerExitedVision(PlatformPlayer player)

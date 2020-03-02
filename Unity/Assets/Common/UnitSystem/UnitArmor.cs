@@ -26,6 +26,7 @@ namespace Common.UnitSystem
 
         public HealthFlag HealthFlags { get; }
         public bool IsDead => _life.Health.Value <= 0;
+        public bool IsInvulnerable => _nextDamageableTime >= Time.time;
 
         public UnitArmor(IUnit ownerUnit, HealthFlag healthFlags, UnitSetup unitSetup, params Func<bool>[] destroyRequirements)
         {
@@ -98,7 +99,7 @@ namespace Common.UnitSystem
 
         private bool CanTakeDamage()
         {
-            return HealthFlags.HasFlag(HealthFlag.Killable) && _nextDamageableTime < Time.time;
+            return HealthFlags.HasFlag(HealthFlag.Killable) && !IsInvulnerable;
         }
     }
 }
